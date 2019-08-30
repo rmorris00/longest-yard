@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiCallService } from '../api-call.service';
-import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {CdkDragDrop, CdkDragStart, moveItemInArray, copyArrayItem, transferArrayItem, CdkDrag} from '@angular/cdk/drag-drop';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -16,6 +16,7 @@ export class MainComponent implements OnInit {
   constructor(private apiCall : ApiCallService) { }
 
   ngOnInit() {
+    this.players2 = this.players.slice();
   }
 
   getData(firstName, lastName){
@@ -116,17 +117,36 @@ export class MainComponent implements OnInit {
     'michael vick',
     'josh gordon',
     'OJ simpson'
-  ]
+  ];
+
+  players2 = [];
+
+  
+
+  // drop(event: CdkDragDrop<string[]>) {
+  //   if (event.previousContainer === event.container) {
+  //     moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+  //   } else {
+  //     transferArrayItem(event.previousContainer.data,
+  //                       event.container.data,
+  //                       event.previousIndex,
+  //                       event.currentIndex);
+  //   }
+  // }
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
-      transferArrayItem(event.previousContainer.data,
+      copyArrayItem(event.previousContainer.data,
                         event.container.data,
                         event.previousIndex,
                         event.currentIndex);
     }
   }
+    
+    
+
+  
 
 }
