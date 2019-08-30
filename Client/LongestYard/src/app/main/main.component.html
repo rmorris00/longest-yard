@@ -1,1 +1,14 @@
-<p>main works!</p>
+<input [(ngModel)] = "playerFirstName" type="text"/>
+<input [(ngModel)] = "playerLastName" type="text"/>
+
+<button (click)="getData(playerFirstName, playerLastName)">
+        click!
+</button>
+
+<p *ngFor = "let p of playerCrimes">
+    {{ p }}
+</p>
+
+<p> 
+        {{ playerCost }}
+</p>
