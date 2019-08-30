@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiCallService } from '../api-call.service';
-
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -100,6 +100,33 @@ export class MainComponent implements OnInit {
       };
     }
     return this.playerCost;
+  }
+
+
+
+  player1 = [
+
+  ];
+
+ player2 = [
+
+  ];
+
+  players = [
+    'michael vick',
+    'josh gordon',
+    'OJ simpson'
+  ]
+
+  drop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+                        event.container.data,
+                        event.previousIndex,
+                        event.currentIndex);
+    }
   }
 
 }
