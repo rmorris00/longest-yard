@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiCallService } from '../api-call.service';
 import {CdkDragDrop, CdkDragStart, moveItemInArray, copyArrayItem, transferArrayItem, CdkDrag} from '@angular/cdk/drag-drop';
+import {Player} from '../interfaces';
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+
+  availablePlayers: Player[];
 
   playerCrimes = [];
   playerCost: number = 0;
@@ -28,6 +32,7 @@ export class MainComponent implements OnInit {
         this.playerCrimes.push(e[i].category);
       }
       this.getPlayerCost(this.playerCrimes)
+      console.log(this.playerCrimes);
       return(this.playerCrimes);
     })
   };
