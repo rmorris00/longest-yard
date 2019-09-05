@@ -6,4 +6,10 @@ export interface Player {
     offenses: string[]; // From API call
     av: number; // From database
     badScore: number; // Uses data from API to calculate based on internal logic
+    careerStat1: string; 
+    careerStat2: string;
+    careerStat3: string;
+    careerStat4?: string;
+    careerStat5?: string;
+    careerBlurb: string;
 }
