@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { ApiCallService } from '../api-call.service';
 import {CdkDragDrop, CdkDragStart, moveItemInArray, copyArrayItem, transferArrayItem, CdkDrag} from '@angular/cdk/drag-drop';
 import {Player} from '../interfaces';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 @Component({
   selector: 'app-main',
@@ -16,6 +19,11 @@ export class MainComponent implements OnInit {
   playerCost: number = 0;
   playerFirstName;
   playerLastName;
+  panelOpenState = false;
+
+  QB: any;
+  RB : any;
+  WR: any;
 
   constructor(private apiCall : ApiCallService) { }
 
@@ -114,30 +122,25 @@ export class MainComponent implements OnInit {
 
   ];
 
- player2 = [
+ player2 = {
+   'QB': [],
+   'WR': [],
+   'RB': []
+ };
 
-  ];
+
 
   players = [
-    'michael vick',
-    'josh gordon',
-    'OJ simpson'
+    {'QB' : 'michael vick'},
+    {'WR' : 'josh gordon'},
+    {'RB' : 'OJ simpson'}
   ];
 
   players2 = [];
 
   
 
-  // drop(event: CdkDragDrop<string[]>) {
-  //   if (event.previousContainer === event.container) {
-  //     moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-  //   } else {
-  //     transferArrayItem(event.previousContainer.data,
-  //                       event.container.data,
-  //                       event.previousIndex,
-  //                       event.currentIndex);
-  //   }
-  // }
+
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
