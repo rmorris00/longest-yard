@@ -5,6 +5,7 @@ import {Player} from '../interfaces';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatExpansionModule} from '@angular/material/expansion';
 
+import { BuildObjectService } from '../build-object.service';
 
 @Component({
   selector: 'app-main',
@@ -13,7 +14,46 @@ import {MatExpansionModule} from '@angular/material/expansion';
 })
 export class MainComponent implements OnInit {
 
-  availablePlayers: Player[];
+
+  testPlayers : Player[] = [
+    {
+      playerId: 99,
+      firstName: "Michael",
+      lastName: "Vick",
+      postion: "QB",
+      picture: "testurl",
+      av: 4,
+      careerStat1: "Mike used dogs to fight",
+      careerStat2: "He like pits",
+      careerStat3: "he was fast",
+      careerBlurb: "he loved orange juice"
+    },
+    {
+      playerId: 98,
+      firstName: "Josh",
+      lastName: "Gordon",
+      postion: "RB",
+      picture: "testurl",
+      av: 4,
+      careerStat1: "Mike used dogs to fight",
+      careerStat2: "He like pits",
+      careerStat3: "he was fast",
+      careerBlurb: "he loved orange juice"
+    },
+    {
+      playerId: 97,
+      firstName: "Aaron",
+      lastName: "Hernandez",
+      postion: "TE",
+      picture: "testurl",
+      av: 4,
+      careerStat1: "Mike used dogs to fight",
+      careerStat2: "He like pits",
+      careerStat3: "he was fast",
+      careerBlurb: "he loved orange juice"
+    }
+  ]
+
 
   playerCrimes = [];
   playerCost: number = 0;
@@ -25,10 +65,10 @@ export class MainComponent implements OnInit {
   RB : any;
   WR: any;
 
-  constructor(private apiCall : ApiCallService) { }
+  constructor(private apiCall : ApiCallService, private buildObject : BuildObjectService) { }
 
   ngOnInit() {
-    this.players2 = this.players.slice();
+    this.fillInOffenseData();
   }
 
   getData(firstName, lastName){
@@ -44,6 +84,10 @@ export class MainComponent implements OnInit {
       return(this.playerCrimes);
     })
   };
+
+  fillInOffenseData(){
+    console.log(this.buildObject.fillInOffenseData(this.testPlayers));
+  }
 
   getPlayerCost(playerCrimes){
     this.playerCost = 0;
