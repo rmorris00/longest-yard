@@ -1,4 +1,4 @@
---  DROP Database IF EXISTS "LongestYardDB";
+-- -- DROP Database IF EXISTS "LongestYardDB";
 
 -- CREATE DATABASE "LongestYardDB"
 --     WITH 
@@ -15,18 +15,12 @@
 -- 	firstName varchar (50) Not Null,
 -- 	lastName varchar (75) Not Null,
 -- 	av smallint Not Null,
--- 	picture varchar (255),
--- 	apiDataAvailable boolean
--- )
+-- 	playerpic varchar (255),
+--  mugshotpic varchar (255),
+-- 	apiDataAvailable boolean default true,
+--  price smallint default 0
+-- );
 
--- Alter table player alter column apiDataAvailable
--- set default true;
-
--- Alter table player 
--- rename column picture to playerPic;
-
--- Alter table player
--- add column mugshotpic varchar (255);
 
 
 -- insert into player (position,firstName,lastName,av)
@@ -71,6 +65,6 @@
 
 -- update player 
 --   set apidataavailable = false
---   where playerID in (1,9,10
+--   where playerID in (1,9,10);
 
--- select * from player
+-- select * from player;
