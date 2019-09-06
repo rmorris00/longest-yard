@@ -14,5 +14,5 @@ server.use(routes);
 
 
 server.listen(8000, (err) => {
-    console.log("running server");
+    console.log("running server at 8000");
 });
