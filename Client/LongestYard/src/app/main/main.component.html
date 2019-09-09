@@ -29,13 +29,26 @@
             </ul>
             <div class="player-container">
                 <h2>Player 1</h2>
+                <mat-accordion cdkDropList #players2QBList="cdkDropList" [cdkDropListData]="player1" [cdkDropListConnectedTo]="[player1List, player2List, players2List]" class="player1-list" (cdkDropListDropped)="drop($event)" [cdkDropListEnterPredicate]="evenPredicate">
+                    <mat-expansion-panel class="example-box" *ngFor="let testPlayer of player1">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <p>{{testPlayer.postion}}</p>
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                <p>{{testPlayer.firstName}} {{testPlayer.lastName}}</p>
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <ng-template matExpansionPanelContent>
+                            {{testPlayer.careerStat1}} {{testPlayer.careerStat2}} {{testPlayer.careerStat3}} {{testPlayer.careerBlurb}}
+                        </ng-template>
+                    </mat-expansion-panel>
+                </mat-accordion>
 
-                <div cdkDropList #player1List="cdkDropList" [cdkDropListData]="player1" [cdkDropListConnectedTo]="[playersList, players2List, player2List]" class="example-list" (cdkDropListDropped)="drop($event)">
-                    <div class="example-box" *ngFor="let item of player1" cdkDrag>
-                        {{item}}
-                    </div>
-                </div>
+
+                <div id="salary">$100,000</div>
             </div>
+
             <!-- <div id="salary">$100,000</div> -->
         </div>
         <div id="playerscontainer">

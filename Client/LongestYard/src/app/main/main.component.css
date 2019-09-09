@@ -153,6 +153,7 @@ li {
 
 li {
     padding: 20px 10px;
+    height: 62px;
     border-bottom: solid 1px #ccc;
     color: rgba(0, 0, 0, 0.87);
     display: flex;
@@ -171,12 +172,23 @@ li {
     width: 40px;
     border: solid 1px #ccc;
     min-height: 60px;
-    height: 465px;
+    height: 494px;
     border-radius: 4px;
     background: white;
     overflow: hidden;
     display: block;
     list-style-type: none;
+}
+
+.player1-list {
+    border: solid 1px #ccc;
+    min-height: 60px;
+    background: white;
+    border-radius: 4px;
+    overflow: visible;
+    display: block;
+    height: 45px;
+    width: 300px;
 }
 
 #container {
