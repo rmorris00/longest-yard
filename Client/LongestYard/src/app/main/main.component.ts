@@ -1,12 +1,15 @@
 import { Component, OnInit, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { ApiCallService } from '../api-call.service';
-import {CdkDragDrop, CdkDragStart, moveItemInArray, copyArrayItem, transferArrayItem, CdkDrag} from '@angular/cdk/drag-drop';
+import {CdkDragDrop, CdkDropList, CdkDragStart, moveItemInArray, copyArrayItem, transferArrayItem, CdkDrag} from '@angular/cdk/drag-drop';
 import {Player} from '../interfaces';
 
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatExpansionModule} from '@angular/material/expansion';
 
 import { BuildObjectService } from '../build-object.service';
+import { NumberValueAccessor } from '@angular/forms';
+import { currentId } from 'async_hooks';
+import { element } from 'protractor';
 
 
 @Component({
@@ -17,6 +20,7 @@ import { BuildObjectService } from '../build-object.service';
 export class MainComponent implements OnInit {
 
 
+  testPlayer : Player;
   testPlayers : Player[] = [
     {
       playerId: 99,
@@ -164,25 +168,16 @@ export class MainComponent implements OnInit {
 
 
 
-  player1 = [
+player1 : Player[] = [];
 
-  ];
-
- player2 = {
-   'QB': [],
-   'WR': [],
-   'RB': []
- };
+ player2 = [];
 
 
 
-  players = [
-    {'QB' : 'michael vick'},
-    {'WR' : 'josh gordon'},
-    {'RB' : 'OJ simpson'}
-  ];
 
   players2 = [];
+  
+
 
   
 
@@ -190,14 +185,33 @@ export class MainComponent implements OnInit {
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex)
+    
     } else {
       copyArrayItem(event.previousContainer.data,
                         event.container.data,
                         event.previousIndex,
                         event.currentIndex);
+                        
+                        
     }
+    
   }
+
+  evenPredicate(item : CdkDrag<string>, testPlayer) {
+    console.log(item)
+
+    return true;
+   
+  }
+
+  noReturnPredicate() {
+    return false;
+  }
+
+
+
+  
     
     
 
