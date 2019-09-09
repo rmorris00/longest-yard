@@ -20,7 +20,7 @@ export class MainComponent implements OnInit {
       playerId: 99,
       firstName: "Michael",
       lastName: "Vick",
-      postion: "QB",
+      position: "QB",
       picture: "testurl",
       av: 4,
       careerStat1: "Mike used dogs to fight",
@@ -32,10 +32,10 @@ export class MainComponent implements OnInit {
       playerId: 98,
       firstName: "Josh",
       lastName: "Gordon",
-      postion: "RB",
+      position: "RB",
       picture: "testurl",
       av: 4,
-      careerStat1: "Mike used dogs to fight",
+      careerStat1: "Josh used dogs to fight",
       careerStat2: "He like pits",
       careerStat3: "he was fast",
       careerBlurb: "he loved orange juice"
@@ -44,15 +44,15 @@ export class MainComponent implements OnInit {
       playerId: 97,
       firstName: "Aaron",
       lastName: "Hernandez",
-      postion: "TE",
+      position: "TE",
       picture: "testurl",
       av: 4,
-      careerStat1: "Mike used dogs to fight",
+      careerStat1: "Aaron used dogs to fight",
       careerStat2: "He like pits",
       careerStat3: "he was fast",
       careerBlurb: "he loved orange juice"
     }
-  ]
+  ];
 
 
   playerCrimes = [];
@@ -166,11 +166,12 @@ export class MainComponent implements OnInit {
 
   ];
 
- player2 = {
-   'QB': [],
-   'WR': [],
-   'RB': []
- };
+ player2 = [
+// {   'QB': [],
+//    'WR': [],
+//    'RB': []
+//  }
+];
 
 
 
