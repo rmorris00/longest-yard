@@ -2,7 +2,7 @@ export interface Player {
     playerId: number; // From Database
     firstName: string; // From Database
     lastName: string; // From Database
-    postion: string; // From Database
+    position: string; // From Database
     picture: string; // From internal folder - also has a field in the database
     mugshot?: string; // From internal folder - also has a field in the database
     offenses?: string[]; // From API call

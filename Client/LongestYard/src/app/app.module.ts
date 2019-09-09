@@ -4,29 +4,45 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { RouterModule, Routes } from '@angular/router';
+import { LandingComponent } from './landing/landing.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material';
+import {MatButtonModule} from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
-import { LoginComponent } from './login/login.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatInputModule} from '@angular/material';
+
+
+const appRoutes: Routes = [
+  { path: '', component:LandingComponent},
+  { path: 'home', component: MainComponent },
+  { path: '*',
+    redirectTo: '',
+    pathMatch: 'full'
+  }
+];
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    LoginComponent
+    LandingComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    DragDropModule,
     FormsModule,
     HttpClientModule,
-    DragDropModule,
+    MatButtonModule,
     MatExpansionModule,
     MatFormFieldModule,
-    BrowserAnimationsModule,
-    MatInputModule
+    MatInputModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
