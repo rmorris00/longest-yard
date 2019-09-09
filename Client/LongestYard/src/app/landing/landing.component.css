@@ -1,0 +1,61 @@
+.lander-container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width:100%;
+
+    justify-content: center; 
+    align-items: center;
+
+
+    background: linear-gradient(rgba(48, 46, 46, 0.473), rgba(0, 0, 0, 0.61)), url("C:\Developer\longest-yard-lenny\longest-yard\Client\LongestYard\src\assets\background_img_4.jpg");
+
+    background-size: cover;
+    background-repeat: no-repeat;
+}   
+
+.mat-display-2 {
+    color: white;
+}
+
+.start-container {
+    border: 2px solid white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+  
+    width: 90%;
+    height: 50%;
+
+    background-color: rgba(255, 255, 255, 0.445);
+}
+
+ul {
+    list-style-type: none;
+}
+
+.landing-btn {
+
+    width: 75%;
+    background-color: rgba(255, 255, 255, 0.096);
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 2px solid rgb(117, 3, 117);
+    margin-top: auto;
+    margin-bottom: 5px;
+
+    padding: 3px 6px;
+
+    align-self: center;
+}
+
+
+
+@media only screen and (min-width: 768px){
+
+}
+
+@media only screen and (min-width: 1024px){
+
+}
