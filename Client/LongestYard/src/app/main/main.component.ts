@@ -41,7 +41,7 @@ export class MainComponent implements OnInit {
       position: "RB",
       picture: "testurl",
       av: 4,
-      careerStat1: "Josh used dogs to fight",
+      careerStat1: "Mike used dogs to fight",
       careerStat2: "He like pits",
       careerStat3: "he was fast",
       careerBlurb: "he loved orange juice"
@@ -53,12 +53,12 @@ export class MainComponent implements OnInit {
       position: "TE",
       picture: "testurl",
       av: 4,
-      careerStat1: "Aaron used dogs to fight",
+      careerStat1: "Mike used dogs to fight",
       careerStat2: "He like pits",
       careerStat3: "he was fast",
       careerBlurb: "he loved orange juice"
     }
-  ];
+  ]
 
 
   playerCrimes = [];
@@ -170,8 +170,9 @@ export class MainComponent implements OnInit {
 
 player1 : Player[] = [];
 
- player2 = [];
 
+
+ player2 = [];
 
 
 
@@ -185,14 +186,15 @@ player1 : Player[] = [];
 
 
   drop(event: CdkDragDrop<string[]>) {
-    if (event.previousContainer === event.container) {
+    if (event.previousContainer === event.container){
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex)
     
-    } else {
+    } else{
       copyArrayItem(event.previousContainer.data,
                         event.container.data,
                         event.previousIndex,
-                        event.currentIndex);
+                        event.currentIndex)
+                        console.log(this.player1);
                         
                         
     }
@@ -200,7 +202,7 @@ player1 : Player[] = [];
   }
 
   evenPredicate(item : CdkDrag<string>, testPlayer) {
-    console.log(item)
+
 
     return true;
    
