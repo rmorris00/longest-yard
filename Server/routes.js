@@ -8,7 +8,7 @@ router
 //get player info w/ api = true
     .get("/players", (req,res)=> {
          
-        const statement = "select playerid,firstname,lastname,position,playerpic,mugshotpic,av from player where apidataavailable = true";
+        const statement = "select * from player where apidataavailable = true";
 
         pool.query(statement).then((response) => {
             if(response.rows.length > 0){
