@@ -67,4 +67,11 @@
 --   set apidataavailable = false
 --   where playerID in (1,9,10);
 
+-- ALTER TABLE player add careerstat1 VARCHAR(100);
+-- ALTER TABLE player add careerstat2 VARCHAR(100);
+-- ALTER TABLE player add careerstat3 VARCHAR(100);
+-- ALTER TABLE player add careerstat4 VARCHAR(100);
+-- ALTER TABLE player add careerstat5 VARCHAR(100);
+-- ALTER TABLE player add careerblurb VARCHAR(250);
+
 -- select * from player;
