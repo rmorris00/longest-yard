@@ -58,6 +58,7 @@ export class MainComponent implements OnInit {
 
 
   playerCrimes = [];
+  listOfPlayers : Player[];
   playerCost: number = 0;
   playerFirstName;
   playerLastName;
@@ -70,7 +71,6 @@ export class MainComponent implements OnInit {
   constructor(private apiCall : ApiCallService, private buildObject : BuildObjectService) { }
 
   ngOnInit() {
-    this.fillInOffenseData();
   }
 
   getData(firstName, lastName){
@@ -87,9 +87,6 @@ export class MainComponent implements OnInit {
     })
   };
 
-  fillInOffenseData(){
-    console.log(this.buildObject.fillInOffenseData(this.testPlayers));
-  }
 
   getPlayerCost(playerCrimes){
     this.playerCost = 0;

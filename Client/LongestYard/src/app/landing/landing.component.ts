@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiCallService } from '../api-call.service';
+import { BuildObjectService } from '../build-object.service';
+import { Player } from '../interfaces';
 
 @Component({
   selector: 'app-landing',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
-  constructor() { }
+  listOfPlayers : Player[];
+
+  constructor(private apiCallService : ApiCallService, private buildObject: BuildObjectService) { }
 
   ngOnInit() {
+    this.listOfPlayers = this.buildObject.fillInDatabaseData();
+  }
+
+  fillInOffenseData(){
+    let result = this.buildObject.fillInOffenseData(this.listOfPlayers);
+    console.log(result);
   }
 
 }
