@@ -46,9 +46,16 @@ export class BuildObjectService {
           position: d[i].position,
           picture: d[i].playerpic,
           mugshot: d[i].mugshotpic,
-          av: d[i].av,
-          playerCost: 0,
           offenses: [],
+          av: d[i].av,
+          playerCost: d[i].price,
+          careerStat1: d[i].careerstat1,
+          careerStat2: d[i].careerstat2,
+          careerStat3: d[i].careerstat3,
+          careerStat4: d[i].careerstat4,
+          careerStat5: d[i].careerstat5,
+          careerBlurb: d[i].careerblurb
+
         };
         // console.log(this.playerObject);
         this.builtListOfPlayers.push(this.playerObject);
