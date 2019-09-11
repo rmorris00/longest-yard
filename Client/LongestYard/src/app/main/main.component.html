@@ -14,9 +14,12 @@
     {{ playerCost }}
 </p> -->
 
-<div id="container">
-    <div cdkDropListGroup id="container">
-        <div id="player1container">
+<div cdkDropListGroup id="container">
+    <div id=player1container>
+        <div id="user-names-parent">
+            <p class="user-names">Player 1</p>
+        </div>
+        <div id="joint-position-player">
             <ul id="position-list">
                 <li>QB</li>
                 <li>RB</li>
@@ -27,85 +30,94 @@
                 <li id="flex">FLEX</li>
                 <li id="K">K</li>
             </ul>
-            <div class="player-container">
-                <h2>Player 1</h2>
-                <mat-accordion cdkDropList #players2List="cdkDropList" [cdkDropListData]="player1" class="player1-list" (cdkDropListDropped)="drop($event)">
-                    <mat-expansion-panel class="example-box" *ngFor="let testPlayer of player1">
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>
-                                <p>{{testPlayer.position}}</p>
-                            </mat-panel-title>
-                            <mat-panel-description>
-                                <p>{{testPlayer.firstName}} {{testPlayer.lastName}}</p>
-                            </mat-panel-description>
-                        </mat-expansion-panel-header>
-                        <ng-template matExpansionPanelContent>
-                            {{testPlayer.careerStat1}} {{testPlayer.careerStat2}} {{testPlayer.careerStat3}} {{testPlayer.careerBlurb}}
-                        </ng-template>
-                    </mat-expansion-panel>
-                </mat-accordion>
-
-
-
-                <div id="salary">$100,000</div>
-            </div>
-
-            <!-- <div id="salary">$100,000</div> -->
+            <mat-accordion cdkDropList #players2List="cdkDropList" [cdkDropListData]="player1" class="player1-list" (cdkDropListDropped)="drop($event)">
+                <mat-expansion-panel class="example-box" *ngFor="let testPlayer of player1">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <p>{{testPlayer.position}}</p>
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            <p>{{testPlayer.firstName}} {{testPlayer.lastName}}</p>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <ng-template matExpansionPanelContent>
+                        {{testPlayer.careerStat1}} {{testPlayer.careerStat2}} {{testPlayer.careerStat3}} {{testPlayer.careerBlurb}}
+                    </ng-template>
+                </mat-expansion-panel>
+            </mat-accordion>
         </div>
-        <div id="playerscontainer">
-            <div class="player-container">
-                <h2>Players</h2>
+        <div id="salary">$100,000</div>
+    </div>
 
-                <mat-accordion cdkDropList #players2List="cdkDropList" [cdkDropListData]="testPlayers" [cdkDropListConnectedTo]="[player1List, player2List, players2List]" class="example-list" (cdkDropListDropped)="drop($event)">
-                    <mat-expansion-panel class="example-box" *ngFor="let testPlayer of testPlayers" cdkDrag>
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>
-                                <p>{{testPlayer.position}}</p>
-                            </mat-panel-title>
-                            <mat-panel-description>
-                                <p>{{testPlayer.firstName}} {{testPlayer.lastName}}</p>
-                            </mat-panel-description>
-                        </mat-expansion-panel-header>
-                        <ng-template matExpansionPanelContent>
-                            {{testPlayer.careerStat1}} {{testPlayer.careerStat2}} {{testPlayer.careerStat3}} {{testPlayer.careerBlurb}}
-                        </ng-template>
-                    </mat-expansion-panel>
-                </mat-accordion>
-            </div>
-        </div>
-        <div id="player2container">
-            <ul id="position-list">
-                <li>QB</li>
-                <li>RB</li>
-                <li>RB</li>
-                <li>WR</li>
-                <li>WR</li>
-                <li>TE</li>
-                <li id="flex">FLEX</li>
-                <li id="K">K</li>
-            </ul>
-            <div class="player-container">
-                <h2>Player 2</h2>
 
-                <mat-accordion cdkDropList #players2List="cdkDropList" [cdkDropListData]="player2" class="player1-list" (cdkDropListDropped)="drop($event)">
-                    <mat-expansion-panel class="example-box" *ngFor="let testPlayer of player2">
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>
-                                <p>{{testPlayer.position}}</p>
-                            </mat-panel-title>
-                            <mat-panel-description>
-                                <p>{{testPlayer.firstName}} {{testPlayer.lastName}}</p>
-                            </mat-panel-description>
-                        </mat-expansion-panel-header>
-                        <ng-template matExpansionPanelContent>
-                            {{testPlayer.careerStat1}} {{testPlayer.careerStat2}} {{testPlayer.careerStat3}} {{testPlayer.careerBlurb}}
-                        </ng-template>
-                    </mat-expansion-panel>
-                </mat-accordion>
 
+
+
+
+
+    <div id="players-container">
+        <div id="players-container-child">
+            <div id="user-names-parent">
+                <p class="user-names">Players</p>
             </div>
 
-            <!-- <div id="salary ">$100,000</div>
-        <div cdkDropList *ngFor="let list of lists "></div> -->
+            <mat-accordion cdkDropList #players2List="cdkDropList" [cdkDropListData]="testPlayers" class="example-list" id="players-list" (cdkDropListDropped)="drop($event)">
+                <mat-expansion-panel class="example-box" *ngFor="let testPlayer of testPlayers" cdkDrag>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <p>{{testPlayer.position}}</p>
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            <p>{{testPlayer.firstName}} {{testPlayer.lastName}}</p>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <ng-template matExpansionPanelContent id="matExpansionPanelContent">
+                        {{testPlayer.careerStat1}} {{testPlayer.careerStat2}} {{testPlayer.careerStat3}} {{testPlayer.careerBlurb}}
+                    </ng-template>
+                </mat-expansion-panel>
+            </mat-accordion>
         </div>
     </div>
+
+
+    <div id="player2container">
+        <div id="user-names-parent">
+            <p class="user-names">Player 2</p>
+        </div>
+        <div id="joint-position-player">
+            <ul id="position-list">
+                <li>QB</li>
+                <li>RB</li>
+                <li>RB</li>
+                <li>WR</li>
+                <li>WR</li>
+                <li>TE</li>
+                <li id="flex">FLEX</li>
+                <li id="K">K</li>
+            </ul>
+
+            <mat-accordion cdkDropList #players2List="cdkDropList" [cdkDropListData]="player2" class="player1-list" (cdkDropListDropped)="drop($event)">
+                <mat-expansion-panel class="example-box" *ngFor="let testPlayer of player2">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <p>{{testPlayer.position}}</p>
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            <p>{{testPlayer.firstName}} {{testPlayer.lastName}}</p>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <ng-template matExpansionPanelContent>
+                        {{testPlayer.careerStat1}} {{testPlayer.careerStat2}} {{testPlayer.careerStat3}} {{testPlayer.careerBlurb}}
+                    </ng-template>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+        <div id="salary">$100,000</div>
+    </div>
+
+
+</div>
+
+
+
+<button id="draft-button">DRAFT!</button>
