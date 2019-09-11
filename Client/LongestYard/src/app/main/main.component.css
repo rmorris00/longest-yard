@@ -1,122 +1,150 @@
-#player2container,
-#player1container,
-#playerscontainer {
-    display: flex;
-}
-
-
-/* #playerscontainer {
-    /* margin-left: -40px;
-    margin-right: -40px; */
-
-
-/* #salary {
-    display: flex;
-    align-self: flex-end;
- 
-    float: bottom;
-    width: 30px;
-    height: 50px;
-    margin-left: -30px; 
-} */
-
-
-/* #flex { */
-
-
-/* margin-left: -7px; */
-
-*/ #K {
-    border-bottom: none;
-}
-
-li {
-    /* padding: 20px 10px; */
-    border-bottom: solid 1px #ccc;
-    color: rgba(0, 0, 0, 0.87);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
-    cursor: move;
-    background: white;
-    /* font-size: 14px; */
-}
-
-#position-list {
-    /* margin-top: 68px;
-    padding: 0px;
-    width: 40px; */
-    border: solid 1px #ccc;
-    /* min-height: 60px; */
-    /* height: 465px; */
-    border-radius: 4px;
-    background: white;
-    overflow: hidden;
-    display: block;
-    list-style-type: none;
-}
-
-#container {
-    display: flex;
-    width: 100%;
-}
-
-.player-container {
-    /* width: 400px;
-    height: 465px; */
-    max-width: 20%;
-    /* margin: 0 25px 25px 0; */
-    display: inline-block;
-    vertical-align: top;
-}
-
-.example-list {
-    border: solid 1px #ccc;
-    /* min-height: 60px; */
-    background: white;
-    border-radius: 4px;
-    overflow: hidden;
-    display: block;
-    /* height: 465px;
-    width: 300px; */
-}
-
-.example-box {
-    /* padding: 20px 10px; */
-    border-bottom: solid 1px #ccc;
-    color: rgba(0, 0, 0, 0.87);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
-    cursor: move;
-    background: white;
-    font-size: 14px;
-}
-
-.cdk-drag-preview {
-    box-sizing: border-box;
-    border-radius: 4px;
-    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
-}
-
-.cdk-drag-placeholder {
-    opacity: 0;
-}
-
-.cdk-drag-animating {
-    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
-}
-
-.example-box:last-child {
-    border: none;
-}
-
-.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
-    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+@media only screen and (max-width: 768px) {
+    #player2container,
+    #player1container,
+    #playerscontainer {
+        display: flex;
+        height: auto;
+    }
+    .user-names {
+        text-align: center;
+        width: 100%;
+        height: 30px;
+    }
+    #joint-position-player {
+        width: 100%;
+        flex-direction: row;
+        height: auto;
+        display: inline-flex;
+        vertical-align: top;
+    }
+    #user-names-parent {
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 30px;
+    }
+    #players-container {
+        order: 1;
+        width: 100%;
+    }
+    #players-container-child {
+        width: 100%;
+        overflow: scroll;
+    }
+    #player1container {
+        order: 2;
+        width: 50%;
+        flex-direction: column;
+    }
+    #player2container {
+        order: 2;
+        width: 50%;
+        flex-direction: column;
+    }
+    #salary {
+        display: flex;
+        align-self: flex-end;
+        width: 100%;
+        float: bottom;
+        height: 50px;
+    }
+    #K {
+        border-bottom: none;
+    }
+    li {
+        height: 89px;
+        border-bottom: solid 1px #ccc;
+        color: rgba(0, 0, 0, 0.87);
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        box-sizing: border-box;
+        cursor: move;
+        background: white;
+        font-size: 14px;
+    }
+    #position-list {
+        margin-top: 20px;
+        padding: 0px;
+        width: 13%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+        border: solid 1px #ccc;
+        min-height: 60px;
+        height: auto;
+        border-radius: 4px;
+        background: white;
+        overflow: hidden;
+        display: block;
+        list-style-type: none;
+    }
+    #player-list {
+        width: 100%;
+    }
+    .player1-list {
+        border: solid 1px #ccc;
+        min-height: 500px;
+        margin: 20px 0 0 0;
+        border-radius: 4px;
+        overflow: visible;
+        display: block;
+        height: auto;
+        width: 87%;
+        background-image: linear-gradient(180deg, #98CD8D 25%, #F6F0CF 25%, #F6F0CF 50%, #98CD8D 50%, #98CD8D 75%, #F6F0CF 75%, #F6F0CF 100%);
+        background-size: 356.00px 356.00px;
+    }
+    #container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .player-container {
+        width: auto;
+        height: 465px;
+        display: inline-block;
+        vertical-align: top;
+    }
+    #FLEX {
+        margin-left: -12px;
+    }
+    .example-list {
+        border: solid 1px #ccc;
+        min-height: 60px;
+        background: white;
+        border-radius: 4px;
+        display: block;
+        height: auto;
+        width: 100%;
+        justify-content: center;
+    }
+    .example-box {
+        padding: 20px 10px;
+        border-bottom: solid 1px #ccc;
+        color: rgba(0, 0, 0, 0.87);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        cursor: move;
+        background: white;
+        font-size: 14px;
+    }
+    #salary {
+        width: 100%;
+        justify-content: center;
+        order: 4;
+        align-self: flex-end;
+    }
+    #draft-button {
+        order: 5;
+        width: 100%;
+        height: 50px;
+        background-color: #8B0000;
+        color: white;
+    }
 }
 
 @media only screen and (min-width: 768px) {}
@@ -192,8 +220,6 @@ li {
     .player-container {
         width: 400px;
         height: 465px;
-        max-width: 20%;
-        margin: 0 25px 25px 0;
         display: inline-block;
         vertical-align: top;
     }
