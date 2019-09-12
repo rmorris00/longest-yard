@@ -8,7 +8,7 @@ router
 //get player info w/ api = true
     .get("/players", (req,res)=> {
          
-        const statement = "select * from player where apidataavailable = true";
+        const statement = "select * from player";
 
         pool.query(statement).then((response) => {
             if(response.rows.length > 0){
@@ -27,24 +27,24 @@ router
 
 
 
-//get player info w/ api = false
-   .get("/players/noapi", (req,res)=> {
+//get player info w/ api = false - NO LONGER NEEDED
+//    .get("/players/noapi", (req,res)=> {
          
-        const statement = "select playerid,firstname,lastname,position,playerpic,mugshotpic,av,price from player where apidataavailable = false";
+//         const statement = "select playerid,firstname,lastname,position,playerpic,mugshotpic,av,price from player where apidataavailable = false";
 
-        pool.query(statement).then((response) => {
-            if(response.rows.length > 0){
-                res.status(200).json(response.rows);
-            }
-            else {
-                res.status(400).send();
-            }
-    }).catch(err => {
-        console.log(err);
-        res.status(400).send();
-    })
+//         pool.query(statement).then((response) => {
+//             if(response.rows.length > 0){
+//                 res.status(200).json(response.rows);
+//             }
+//             else {
+//                 res.status(400).send();
+//             }
+//     }).catch(err => {
+//         console.log(err);
+//         res.status(400).send();
+//     })
 
-})
+// })
 
 // put player price in db
     .put("/player/:id", (req,res)=> {
