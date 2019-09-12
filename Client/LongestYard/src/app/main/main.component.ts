@@ -84,6 +84,7 @@ export class MainComponent implements OnInit {
     this.getPlayerDBData();
   }
 
+
   getPlayerDBData(){
     this.apiCall.getPlayerDataFromDatabase().subscribe((results:any) =>{
       this.availPlayers = results;
@@ -176,13 +177,6 @@ export class MainComponent implements OnInit {
     return this.playerCost;
   }
 
-
-
-
-  
-
-
-  
 
 
 
