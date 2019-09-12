@@ -30,18 +30,18 @@
                 <li id="flex">FLEX</li>
                 <li id="K">K</li>
             </ul>
-            <mat-accordion cdkDropList #players2List="cdkDropList" [cdkDropListData]="player1" class="player1-list" (cdkDropListDropped)="drop($event)">
-                <mat-expansion-panel class="example-box" *ngFor="let testPlayer of player1">
+            <mat-accordion cdkDropList #players2List="cdkDropList" [cdkDropListData]="playerRoster1" class="player1-list" (cdkDropListDropped)="drop($event)">
+                <mat-expansion-panel class="example-box" *ngFor="let player of playerRoster1">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            <p>{{testPlayer.position}}</p>
+                            <p>{{player.position}}</p>
                         </mat-panel-title>
                         <mat-panel-description>
-                            <p>{{testPlayer.firstName}} {{testPlayer.lastName}}</p>
+                            <p>{{player.firstname}} {{player.lastname}}</p>
                         </mat-panel-description>
                     </mat-expansion-panel-header>
                     <ng-template matExpansionPanelContent>
-                        {{testPlayer.careerStat1}} {{testPlayer.careerStat2}} {{testPlayer.careerStat3}} {{testPlayer.careerBlurb}}
+                        {{player.careerstat1}} {{player.careerstat2}} {{player.careerstat3}} {{player.careerblurb}}
                     </ng-template>
                 </mat-expansion-panel>
             </mat-accordion>
@@ -61,18 +61,18 @@
                 <p class="user-names">Players</p>
             </div>
 
-            <mat-accordion cdkDropList #players2List="cdkDropList" [cdkDropListData]="testPlayers" class="example-list" id="players-list" (cdkDropListDropped)="drop($event)">
-                <mat-expansion-panel class="example-box" *ngFor="let testPlayer of testPlayers" cdkDrag>
+            <mat-accordion cdkDropList #players2List="cdkDropList" [cdkDropListData]="availPlayers " class="example-list avail-player-list" id="players-list" (cdkDropListDropped)="drop($event)">
+                <mat-expansion-panel class="example-box" *ngFor="let player of availPlayers" cdkDrag>
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            <p>{{testPlayer.position}}</p>
+                            <p>{{player.position}}</p>
                         </mat-panel-title>
                         <mat-panel-description>
-                            <p>{{testPlayer.firstName}} {{testPlayer.lastName}}</p>
+                            <p>{{player.firstname}} {{player.lastname}}</p>
                         </mat-panel-description>
                     </mat-expansion-panel-header>
                     <ng-template matExpansionPanelContent id="matExpansionPanelContent">
-                        {{testPlayer.careerStat1}} {{testPlayer.careerStat2}} {{testPlayer.careerStat3}} {{testPlayer.careerBlurb}}
+                        {{player.careerstat1}} {{player.careerstat2}} {{player.careerstat3}} {{player.careerblurb}}
                     </ng-template>
                 </mat-expansion-panel>
             </mat-accordion>
@@ -96,18 +96,18 @@
                 <li id="K">K</li>
             </ul>
 
-            <mat-accordion cdkDropList #players2List="cdkDropList" [cdkDropListData]="player2" class="player1-list" (cdkDropListDropped)="drop($event)">
-                <mat-expansion-panel class="example-box" *ngFor="let testPlayer of player2">
+            <mat-accordion cdkDropList #players2List="cdkDropList" [cdkDropListData]="playerRoster2" class="player1-list" (cdkDropListDropped)="drop($event)">
+                <mat-expansion-panel class="example-box" *ngFor="let player of playerRoster2">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            <p>{{testPlayer.position}}</p>
+                            <p>{{player.position}}</p>
                         </mat-panel-title>
                         <mat-panel-description>
-                            <p>{{testPlayer.firstName}} {{testPlayer.lastName}}</p>
+                            <p>{{player.firstname}} {{player.lastname}}</p>
                         </mat-panel-description>
                     </mat-expansion-panel-header>
                     <ng-template matExpansionPanelContent>
-                        {{testPlayer.careerStat1}} {{testPlayer.careerStat2}} {{testPlayer.careerStat3}} {{testPlayer.careerBlurb}}
+                        {{player.careerstat1}} {{player.careerstat2}} {{player.careerstat3}} {{player.careerblurb}}
                     </ng-template>
                 </mat-expansion-panel>
             </mat-accordion>

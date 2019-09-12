@@ -17,6 +17,12 @@ import { element } from 'protractor';
 })
 export class MainComponent implements OnInit {
 
+  availPlayers : Player;
+  playerRoster1 : Player[] = [];
+  playerRoster2 : Player [] = [];
+
+  players2 = [];
+ 
 
   testPlayer : Player;
   testPlayers : Player[] = [
@@ -73,7 +79,14 @@ export class MainComponent implements OnInit {
   constructor(private apiCall : ApiCallService, private buildObject : BuildObjectService) { }
 
   ngOnInit() {
+    this.getPlayerDBData();
   }
+
+  getPlayerDBData(){
+    this.apiCall.getPlayerDataFromDatabase().subscribe((results:any) =>{
+      this.availPlayers = results;
+    })
+  };
 
   getData(firstName, lastName){
     
@@ -163,15 +176,7 @@ export class MainComponent implements OnInit {
 
 
 
-player1 : Player[] = [];
 
-
-
- player2 = [];
-
-
-
-  players2 = [];
   
 
 
