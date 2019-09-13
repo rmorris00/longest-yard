@@ -1,3 +1,36 @@
+
+<!-- <input [(ngModel)]="playerFirstName" type="text" />
+
+<input [(ngModel)]="playerLastName" type="text" />
+
+<button (click)="getData(playerFirstName, playerLastName)">
+        click!
+</button> -->
+
+<!-- <p *ngFor="let p of playerCrimes">
+    {{ p }}
+</p> -->
+
+<!-- <p>
+    {{ playerCost }}
+</p> -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism.css" />
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <div class="modal-header" id="modal-header">
+        <h4 class="modal-title" id="modal-title" text-align="center">Player One Wins!</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <img src="https://media0.giphy.com/media/m175cOT6IezO8/giphy.gif">
+    </div>
+</ng-template>
+
 <div cdkDropListGroup id="container">
     <div id=player1container>
         <div id="user-names-parent">
@@ -87,9 +120,12 @@
                 <mat-expansion-panel class="example-box" *ngFor="let p of mikePlayer2">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
+
                             <p>{{p.position}}</p>
                             <!-- <img [src] = "p.picture"/>
                              -->
+                            <p>{{testPlayer.position}}</p><i class="material-icons" (click)="removePlayer(testPlayer)">clear</i>
+
                         </mat-panel-title>
                         <mat-panel-description>
                             <p>{{p.firstName}} {{p.lastName}}</p>
@@ -109,6 +145,11 @@
       <div id="salary"><img src="assets/dollar-sign.jpg" id="dollar-sign">Player 2 Salary - ${{playerTwoSalary | number}}</div>
 
     </div>
+
+    <div id="draft-button-container"><button id="draft-button" (click)="open(content)">DRAFT!</button></div>
+
+
+
 
 <button id="player-one-draft-button" (click)="player1Drafted()">DRAFT!</button>
 <button id="player-two-draft-button" (click)="player2Drafted()" style="float: right">DRAFT!</button>
