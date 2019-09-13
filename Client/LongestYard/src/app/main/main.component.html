@@ -13,8 +13,22 @@
 <!-- <p>
     {{ playerCost }}
 </p> -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism.css" />
 
+<ng-template #content let-c="close" let-d="dismiss">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <div class="modal-header" id="modal-header">
+        <h4 class="modal-title" id="modal-title" text-align="center">Player One Wins!</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <img src="https://media0.giphy.com/media/m175cOT6IezO8/giphy.gif">
+    </div>
+</ng-template>
 <div cdkDropListGroup id="container">
     <div id=player1container>
         <div id="user-names-parent">
@@ -102,7 +116,7 @@
                 <mat-expansion-panel class="example-box" *ngFor="let testPlayer of player2">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            <p>{{testPlayer.position}}</p>
+                            <p>{{testPlayer.position}}</p><i class="material-icons" (click)="removePlayer(testPlayer)">clear</i>
                         </mat-panel-title>
                         <mat-panel-description>
                             <p>{{testPlayer.firstName}} {{testPlayer.lastName}}</p>
@@ -117,6 +131,9 @@
         <div id="salary"><img src="assets/dollar-sign.jpg" id="dollar-sign">100,000</div>
 
     </div>
-    <div id="draft-button-container"><button id="draft-button">DRAFT!</button></div>
+    <div id="draft-button-container"><button id="draft-button" (click)="open(content)">DRAFT!</button></div>
+
+
+
 
 </div>

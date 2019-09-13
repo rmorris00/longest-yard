@@ -10,7 +10,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
@@ -42,6 +42,7 @@ const appRoutes: Routes = [
     MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
+    NgbModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
