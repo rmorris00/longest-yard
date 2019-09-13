@@ -1,7 +1,7 @@
 <div cdkDropListGroup id="container">
     <div id=player1container>
         <div id="user-names-parent">
-            <p class="user-names">Player 1</p>
+            <p class="user-names">PLAYER ONE</p>
         </div>
         <div id="joint-position-player" style="margin-right: 40px">
             <!-- <ul id="position-list">
@@ -30,7 +30,7 @@
                 </mat-expansion-panel>
             </mat-accordion>
         </div>
-        <div id="salary">Player 1 Salary - ${{playerOneSalary | number}}</div>
+        <div id="salary"><img src="assets/dollar-sign.jpg" id="dollar-sign">Player 1 Salary - ${{playerOneSalary | number}}</div>
     </div>
 
 
@@ -63,12 +63,13 @@
                 </ng-container>
             </mat-accordion>
         </div>
+
     </div>
 
 
     <div id="player2container">
         <div id="user-names-parent">
-            <p class="user-names">Player 2</p>
+            <p class="user-names">PLAYER TWO</p>
         </div>
         <div id="joint-position-player">
             <!-- <ul id="position-list">
@@ -100,13 +101,15 @@
                 </mat-expansion-panel>
             </mat-accordion>
         </div>
-        <div id="salary">Player 2 Salary - ${{playerTwoSalary | number}}</div>
     </div>
 
 
 </div>
 
+      <div id="salary"><img src="assets/dollar-sign.jpg" id="dollar-sign">Player 2 Salary - ${{playerTwoSalary | number}}</div>
 
+    </div>
 
 <button id="player-one-draft-button" (click)="player1Drafted()">DRAFT!</button>
 <button id="player-two-draft-button" (click)="player2Drafted()" style="float: right">DRAFT!</button>
+</div>
