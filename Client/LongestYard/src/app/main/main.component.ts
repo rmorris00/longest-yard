@@ -21,12 +21,6 @@ import { element } from 'protractor';
 })
 export class MainComponent implements OnInit {
 
-  availPlayers : Player;
-  playerRoster1 : Player[] = [];
-  playerRoster2 : Player [] = [];
-
-  players2 = [];
- 
 
   testPlayer : Player;
   testPlayers : Player[] = [
@@ -103,9 +97,6 @@ export class MainComponent implements OnInit {
   constructor(private apiCall : ApiCallService, private buildObject : BuildObjectService, private modalService: NgbModal) { }
 
   ngOnInit() {
-
-    this.getPlayerDBData();
-
     this.availablePlayers = this.buildObject.getPlayerList();
    
     this.fillInOffenseData();
@@ -127,7 +118,6 @@ export class MainComponent implements OnInit {
 
   fillInOffenseData(){
     console.log(this.buildObject.fillInOffenseData(this.testPlayers));
-
   }
 
   getPlayerCost(playerCrimes){
@@ -214,13 +204,6 @@ export class MainComponent implements OnInit {
   flexPosition: string = "p.position === WR || p.position === TE"
   draftRound: number = 1;
 
-
-
-  getPlayerDBData(){
-    this.apiCall.getPlayerDataFromDatabase().subscribe((results:any) =>{
-      this.availPlayers = results;
-    })
-  };
 
 
   player1 : Player[] = [];
@@ -323,92 +306,6 @@ export class MainComponent implements OnInit {
   };
 
 
-
-  getData(firstName, lastName){
-    
-    this.apiCall.getPlayerArrestData(firstName, lastName).subscribe((e: any)=>{
-      console.log(e);
-      this.playerCrimes = [];
-      for (let i = 0; i < e.length; i++){
-        this.playerCrimes.push(e[i].category);
-      }
-      this.getPlayerCost(this.playerCrimes)
-      console.log(this.playerCrimes);
-      return(this.playerCrimes);
-    })
-  };
-
-
-  getPlayerCost(playerCrimes){
-    this.playerCost = 0;
-    for (let i = 0; i < playerCrimes.length; i ++){
-      console.log(playerCrimes[i])
-      if (playerCrimes[i].toLowerCase().includes('murder')) {
-        this.playerCost += 100;
-      };
-      if (playerCrimes[i].toLowerCase().includes('dui')) {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase().includes('sex')) {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase().includes('drug')) {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase().includes('assault')) {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase().includes("gun")) {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "disorderly conduct") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "domestic violence") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "public intoxication") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "battery") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "license") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "alcohol") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "reckless driving") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "theft") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "outstanding warrant") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "failure to appear") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "trespassing") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "animal abuse") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "obstruction") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "child abuse") {
-        this.playerCost += 1;
-      };
-      if (playerCrimes[i].toLowerCase() === "resisting arrest") {
-        this.playerCost += 2;
-      };
-    }
-    return this.playerCost;
-  }
 
 
 
