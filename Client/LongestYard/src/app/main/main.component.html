@@ -124,7 +124,7 @@
                             <p>{{p.position}}</p>
                             <!-- <img [src] = "p.picture"/>
                              -->
-                            <p>{{testPlayer.position}}</p><i class="material-icons" (click)="removePlayer(testPlayer)">clear</i>
+                            <p>{{p.position}}</p><i class="material-icons" (click)="removePlayer(testPlayer)">clear</i>
 
                         </mat-panel-title>
                         <mat-panel-description>
@@ -142,15 +142,16 @@
 
 </div>
 
-      <div id="salary"><img src="assets/dollar-sign.jpg" id="dollar-sign">Player 2 Salary - ${{playerTwoSalary | number}}</div>
-
+    <div id="salary">
+          <img src="assets/dollar-sign.jpg" id="dollar-sign">Player 2 Salary - ${{playerTwoSalary | number}}
     </div>
 
-    <div id="draft-button-container"><button id="draft-button" (click)="open(content)">DRAFT!</button></div>
+    <div id="draft-button-container">
+        <button id="draft-button" (click)="open(content)">DRAFT!</button>
+    </div>
 
 
 
 
-<button id="player-one-draft-button" (click)="player1Drafted()">DRAFT!</button>
-<button id="player-two-draft-button" (click)="player2Drafted()" style="float: right">DRAFT!</button>
-</div>
+<button id="player-one-draft-button" (click)="player1Drafted()" style="position: static">DRAFT!</button>
+<button id="player-two-draft-button" (click)="player2Drafted()" style="position: static">DRAFT!</button>

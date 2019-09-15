@@ -223,6 +223,7 @@ export class MainComponent implements OnInit {
   };
 
   player1Drafted(){
+    console.log(`Player 1 has drafted ${this.mikeSelectedPlayer.firstName}`)
     if (this.playerOneDrafted === false){
       for (let i = 0; i < this.mikePlayer1.length; i++){
         if (this.mikeSelectedPlayer.playerId === this.mikePlayer1[i].playerId){
@@ -236,9 +237,11 @@ export class MainComponent implements OnInit {
       this.goToNextRound();
     }
     console.log(this.mikePlayer1);
+    return;
   };
 
   player2Drafted(){
+    console.log(`Player 2 has drafted ${this.mikeSelectedPlayer.firstName}`)
     if (this.playerTwoDrafted === false){
       for (let i = 0; i < this.mikePlayer2.length; i ++){
         if (this.mikeSelectedPlayer.playerId === this.mikePlayer2[i].playerId){
@@ -247,7 +250,7 @@ export class MainComponent implements OnInit {
         }
       }
       this.mikePlayer2.push(this.mikeSelectedPlayer);
-      this.playerOneSalary -= this.mikeSelectedPlayer.playerCost;
+      this.playerTwoSalary -= this.mikeSelectedPlayer.playerCost;
       this.playerTwoDrafted = true;
       this.goToNextRound();
     }
@@ -255,6 +258,7 @@ export class MainComponent implements OnInit {
       return;
     }
     console.log(this.mikePlayer2);
+    return;
   };
 
   goToNextRound(){
