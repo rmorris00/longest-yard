@@ -2,12 +2,9 @@ import { Component, OnInit, ChangeDetectionStrategy, ViewChild } from '@angular/
 import { ApiCallService } from '../api-call.service';
 import {CdkDragDrop, CdkDropList, CdkDragStart, moveItemInArray, copyArrayItem, transferArrayItem, CdkDrag} from '@angular/cdk/drag-drop';
 import {Player} from '../interfaces';
-<<<<<<< HEAD
-=======
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 
->>>>>>> 3a8531fda0b7ff7d8b11f1bea3b6d38125c63594
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatExpansionModule} from '@angular/material/expansion';
 
@@ -15,10 +12,6 @@ import { BuildObjectService } from '../build-object.service';
 import { NumberValueAccessor } from '@angular/forms';
 import { currentId } from 'async_hooks';
 import { element } from 'protractor';
-<<<<<<< HEAD
-=======
-
->>>>>>> 3a8531fda0b7ff7d8b11f1bea3b6d38125c63594
 
 @Component({
   selector: 'app-main',
@@ -27,15 +20,12 @@ import { element } from 'protractor';
 })
 export class MainComponent implements OnInit {
 
-<<<<<<< HEAD
   availPlayers : Player;
   playerRoster1 : Player[] = [];
   playerRoster2 : Player [] = [];
 
   players2 = [];
  
-=======
->>>>>>> 3a8531fda0b7ff7d8b11f1bea3b6d38125c63594
 
   testPlayer : Player;
   testPlayers : Player[] = [
@@ -49,8 +39,6 @@ export class MainComponent implements OnInit {
       careerStat1: "Mike used dogs to fight",
       careerStat2: "He like pits",
       careerStat3: "he was fast",
-<<<<<<< HEAD
-=======
       careerBlurb: "he loved orange juice",
       playerCost: 10000
       
@@ -65,7 +53,6 @@ export class MainComponent implements OnInit {
       careerStat1: "Mike used dogs to fight",
       careerStat2: "He like pits",
       careerStat3: "he was fast",
->>>>>>> 3a8531fda0b7ff7d8b11f1bea3b6d38125c63594
       careerBlurb: "he loved orange juice"
     },
     {
@@ -233,7 +220,6 @@ export class MainComponent implements OnInit {
 
 
 
-  players2 = [];
 
   playerSelected(player){
     this.mikeSelectedPlayer = player;

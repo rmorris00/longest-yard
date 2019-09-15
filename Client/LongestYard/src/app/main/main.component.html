@@ -136,7 +136,7 @@
     </div>
 </ng-template>
 
-<div cdkDropListGroup id="container">
+<div cdkDropListGroup id="drag-drop-container">
     <div id=player1container>
         <div id="user-names-parent">
             <p class="user-names">PLAYER ONE</p>
@@ -245,7 +245,7 @@
     </div>
 
 
-</div>
+
 
     <div id="salary">
           <img src="assets/dollar-sign.jpg" id="dollar-sign">Player 2 Salary - ${{playerTwoSalary | number}}
@@ -258,5 +258,6 @@
 
 
 
-<button id="player-one-draft-button" (click)="player1Drafted()" style="position: static">DRAFT!</button>
-<button id="player-two-draft-button" (click)="player2Drafted()" style="position: static">DRAFT!</button>
+    <button id="player-one-draft-button" (click)="player1Drafted()" style="position: static">DRAFT!</button>
+    <button id="player-two-draft-button" (click)="player2Drafted()" style="position: static">DRAFT!</button>
+</div>
