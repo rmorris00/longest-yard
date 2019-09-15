@@ -144,5 +144,9 @@ export class BuildObjectService {
     
     return calculatedCost;
 
+  };
+
+  getPlayerList(){
+    return this.builtListOfPlayers;
   }
 }

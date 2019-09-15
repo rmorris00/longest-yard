@@ -51,6 +51,7 @@ const appRoutes: Routes = [
     MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
+    NgModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
