@@ -193,7 +193,7 @@ export class MainComponent implements OnInit {
                         event.container.data,
                         event.previousIndex,
                         event.currentIndex)
-                        console.log(this.player1);
+                        console.log(this.playerRoster1);
                         
                         
     }
