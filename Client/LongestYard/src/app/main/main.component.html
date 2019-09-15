@@ -1,4 +1,3 @@
-
 <!-- <input [(ngModel)]="playerFirstName" type="text" />
 
 <input [(ngModel)]="playerLastName" type="text" />
@@ -31,12 +30,15 @@
     </div>
 </ng-template>
 
+
+
 <div cdkDropListGroup id="container">
+    <div id=logo-container><img id="logo" src="assets/logo.png" width="100px" height="100px"></div>
     <div id=player1container>
         <div id="user-names-parent">
             <p class="user-names">PLAYER ONE</p>
         </div>
-        <div id="joint-position-player" style="margin-right: 40px">
+        <div id="joint-position-player">
             <!-- <ul id="position-list">
                 <li>QB</li>
                 <li>RB</li>
@@ -63,7 +65,7 @@
                 </mat-expansion-panel>
             </mat-accordion>
         </div>
-        <div id="salary"><img src="assets/dollar-sign.jpg" id="dollar-sign">Player 1 Salary - ${{playerOneSalary | number}}</div>
+
     </div>
 
 
@@ -75,17 +77,17 @@
     <div id="players-container">
         <div id="players-container-child">
             <div id="user-names-parent">
-                <p id = "draftPosition" class="user-names">{{positionToBeDrafted}}</p>
+                <p id="draftPosition" class="user-names">{{positionToBeDrafted}}</p>
             </div>
 
             <mat-accordion class="example-list" id="players-list">.
                 <ng-container *ngFor="let p of availablePlayers">
-                    <mat-expansion-panel *ngIf = "p.position === positionAllowedToBeDrafted" class="example-box" cdkDrag>
+                    <mat-expansion-panel *ngIf="p.position === positionAllowedToBeDrafted" class="example-box" cdkDrag>
                         <mat-expansion-panel-header>
-                            <mat-panel-title *ngIf = "p.position === positionAllowedToBeDrafted">
+                            <mat-panel-title *ngIf="p.position === positionAllowedToBeDrafted">
                                 <p>{{p.position}}</p>
                             </mat-panel-title>
-                            <mat-panel-description (click)="playerSelected(p)" *ngIf = "p.position === positionAllowedToBeDrafted">
+                            <mat-panel-description (click)="playerSelected(p)" *ngIf="p.position === positionAllowedToBeDrafted">
                                 <p>{{p.firstName}} {{p.lastName}}</p>
                             </mat-panel-description>
                         </mat-expansion-panel-header>
@@ -96,6 +98,8 @@
                 </ng-container>
             </mat-accordion>
         </div>
+
+
 
     </div>
 
@@ -137,21 +141,35 @@
                 </mat-expansion-panel>
             </mat-accordion>
         </div>
+
+
     </div>
+
+    <div id="draft-salary-container">
+        <div id="salary-player-1">
+            <link rel="stylesheet" href="/assets/odometer-0.4.6/themes/odometer-theme-default.css" />
+            <p id="player-salary-title">Player 1 Salary</p>
+            <p id="salary">${{playerOneSalary | number}}</p>
+        </div>
+
+        <div id="draft-button-container">
+            <button id="player-one-draft-button" class="draft-button" (click)="player1Drafted()" style="position: static">P1 Ready</button>
+            <button id="draft-button" class="draft-button" (click)="open(content)">DRAFT!</button>
+            <button id="player-two-draft-button" class="draft-button" (click)="player2Drafted()" style="position: static">P2 Ready</button>
+
+        </div>
+
+
+        <div id="salary-player-2">
+            <link rel="stylesheet" href="/assets/odometer-0.4.6/themes/odometer-theme-default.css" />
+            <p id="player-salary-title">Player 2 Salary</p>
+            <p id="salary">${{playerTwoSalary | number}}</p>
+        </div>
+
+
+
+    </div>
+
 
 
 </div>
-
-    <div id="salary">
-          <img src="assets/dollar-sign.jpg" id="dollar-sign">Player 2 Salary - ${{playerTwoSalary | number}}
-    </div>
-
-    <div id="draft-button-container">
-        <button id="draft-button" (click)="open(content)">DRAFT!</button>
-    </div>
-
-
-
-
-<button id="player-one-draft-button" (click)="player1Drafted()" style="position: static">DRAFT!</button>
-<button id="player-two-draft-button" (click)="player2Drafted()" style="position: static">DRAFT!</button>
