@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
     font-family: 'Sporter';
     src: url(/src/assets/Sporter.ttf);
 }
@@ -6,9 +6,53 @@
 @font-face {
     font-family: 'CurrencyRegular';
     src: url(/src/assets/StripesCaps.ttf);
+} */
+
+#drag-drop-container {
+    display: none;
 }
 
-@media only screen and (max-width: 768px) {
+#app-header {
+    position: fixed;
+    top: 0px;
+    padding:0;
+    margin:0;
+    display: flex;
+    background-color: white;
+    width: 100%;
+}
+
+#logo {
+    
+    margin-left: 5px;
+}
+
+#nav-items {
+    margin-left: auto;
+    padding-top: 20px;
+    padding-right: 5px;
+}
+
+a {
+    text-decoration:none;
+    color: black;
+    margin-top: 10px;
+    margin-left: 5px;
+    
+}
+
+a:hover {
+    color:grey;
+}
+
+.mobile-roster-container{
+
+    height: 85%;
+    margin-block-start: 100px;
+   
+}
+
+/* @media only screen and (max-width: 768px) {
     #player2container,
     #player1container,
     #playerscontainer {
@@ -156,7 +200,7 @@
         background-color: #8B0000;
         color: white;
     }
-}
+} */
 
 @media only screen and (min-width: 768px) {}
 
@@ -266,15 +310,15 @@
         background-image: linear-gradient(180deg, #4C934C 25%, #50C456 25%, #50C456 50%, #4C934C 50%, #4C934C 75%, #50C456 75%, #50C456 100%);
         background-size: 356.00px 356.00px;
     }
-    #container {
+    #drag-drop-container {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        background: url(/assets/background_img_5.jpg) no-repeat center center fixed;
+        /* background: url(/assets/background_img_5.jpg) no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
-        background-size: cover;
+        background-size: cover; */
     }
     .player-container {
         width: auto;
@@ -342,6 +386,7 @@
         margin-bottom: 10px;
     }
     #dollar-sign {
+
         height: 80%;
         width: 10%;
         margin-right: 10px;

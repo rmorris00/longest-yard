@@ -1,0 +1,65 @@
+.player1-roster-header{
+    position: fixed;
+    top: 50px;
+    display: flex;
+    background-color: white;
+    width: 100%;
+}
+
+.submit-btn{
+    margin-left: auto;
+    margin-right: 5px;
+    background-color: rgba(255, 255, 255, 0.068);
+    border: none;
+}
+
+.first-group {
+    margin-block-start: 50px;
+}
+
+.postition-group{
+    border: 1px solid blue;
+    display: flex;
+}
+
+.label {
+    border: 1px solid black;
+}
+
+.position-cards{
+    border: 1px solid rgba(0, 128, 0, 0.164);
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(14, 14, 129, 0.5);
+}
+
+.position-cards > * {
+    color: rgb(231, 230, 230);
+}
+
+.player-img{
+    border: 2px solid white;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin: 0.95em 0.55em 0.25em 0.55em;
+}
+
+.player-name{
+    font-size: 1.75em;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    margin-left: 0.75em;
+    text-align: center;
+}
+
+.player-stats{
+    font-size: 0.45em;
+}
+
+.player-price{
+    font-size: 1.25em;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: 0.10em;
+}

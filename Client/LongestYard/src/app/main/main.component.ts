@@ -13,7 +13,6 @@ import { NumberValueAccessor } from '@angular/forms';
 import { currentId } from 'async_hooks';
 import { element } from 'protractor';
 
-
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -21,6 +20,12 @@ import { element } from 'protractor';
 })
 export class MainComponent implements OnInit {
 
+  availPlayers : Player;
+  playerRoster1 : Player[] = [];
+  playerRoster2 : Player [] = [];
+
+  players2 = [];
+ 
 
   testPlayer : Player;
   testPlayers : Player[] = [
@@ -215,7 +220,6 @@ export class MainComponent implements OnInit {
 
 
 
-  players2 = [];
 
   playerSelected(player){
     this.mikeSelectedPlayer = player;

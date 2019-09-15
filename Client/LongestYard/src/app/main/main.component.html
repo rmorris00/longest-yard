@@ -1,22 +1,127 @@
 
-<!-- <input [(ngModel)]="playerFirstName" type="text" />
-
-<input [(ngModel)]="playerLastName" type="text" />
-
-<button (click)="getData(playerFirstName, playerLastName)">
-        click!
-</button> -->
-
-<!-- <p *ngFor="let p of playerCrimes">
-    {{ p }}
-</p> -->
-
-<!-- <p>
-    {{ playerCost }}
-</p> -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism.css" />
+
+    <header id="app-header">
+        <h3 id="logo">Logo</h3>
+    
+        <nav id="nav-items">
+            <a routerLink="player1">PlayerOne</a>
+            <a routerLink="player2">PlayerTwo</a>
+        </nav>
+    </header>   
+    <div class="mobile-roster-container">
+        <router-outlet></router-outlet>
+    </div>
+
+<!-- 
+    <div cdkDropListGroup id="drag-drop-container">
+        <div id=player1container>
+            <div id="user-names-parent">
+                <p class="user-names">PLAYER ONE</p>
+            </div>
+            <div id="joint-position-player">
+                <ul id="position-list">
+                    <li>QB</li>
+                    <li>RB</li>
+                    <li>RB</li>
+                    <li>WR</li>
+                    <li>WR</li>
+                    <li>TE</li>
+                    <li id="flex">FLEX</li>
+                    <li id="K">K</li>
+                </ul>
+                <mat-accordion cdkDropList #players2List="cdkDropList" [cdkDropListData]="playerRoster1" class="player1-list" (cdkDropListDropped)="drop($event)">
+                    <mat-expansion-panel class="example-box" *ngFor="let player of playerRoster1">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <p>{{player.position}}</p>
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                <p>{{player.firstname}} {{player.lastname}}</p>
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <ng-template matExpansionPanelContent>
+                            {{player.careerstat1}} {{player.careerstat2}} {{player.careerstat3}} {{player.careerblurb}}
+                        </ng-template>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+            <div id="salary"><img src="assets/dollar-sign.jpg" id="dollar-sign">100,000</div>
+        </div>
+
+
+
+
+
+
+
+        <div id="players-container">
+            <div id="players-container-child">
+                <div id="user-names-parent">
+                    <p class="user-names">Players</p>
+                </div>
+
+                <mat-accordion cdkDropList #players2List="cdkDropList" [cdkDropListData]="availPlayers " class="example-list avail-player-list" id="players-list" (cdkDropListDropped)="drop($event)">
+                    <mat-expansion-panel class="example-box" *ngFor="let player of availPlayers" cdkDrag>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <p>{{player.position}}</p>
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                <p>{{player.firstname}} {{player.lastname}}</p>
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <ng-template matExpansionPanelContent id="matExpansionPanelContent">
+                            {{player.careerstat1}} {{player.careerstat2}} {{player.careerstat3}} {{player.careerblurb}}
+                        </ng-template>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+
+        </div>
+
+
+        <div id="player2container">
+            <div id="user-names-parent">
+                <p class="user-names">PLAYER TWO</p>
+            </div>
+            <div id="joint-position-player">
+                <ul id="position-list">
+                    <li>QB</li>
+                    <li>RB</li>
+                    <li>RB</li>
+                    <li>WR</li>
+                    <li>WR</li>
+                    <li>TE</li>
+                    <li id="flex">FLEX</li>
+                    <li id="K">K</li>
+                </ul>
+
+                <mat-accordion cdkDropList #players2List="cdkDropList" [cdkDropListData]="playerRoster2" class="player1-list" (cdkDropListDropped)="drop($event)">
+                    <mat-expansion-panel class="example-box" *ngFor="let player of playerRoster2">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <p>{{player.position}}</p>
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                <p>{{player.firstname}} {{player.lastname}}</p>
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <ng-template matExpansionPanelContent>
+                            {{player.careerstat1}} {{player.careerstat2}} {{player.careerstat3}} {{player.careerblurb}}
+                        </ng-template>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+            <div id="salary"><img src="assets/dollar-sign.jpg" id="dollar-sign">100,000</div>
+
+        </div>
+        <div id="draft-button-container"><button id="draft-button">DRAFT!</button></div>
+
+    </div> -->
+
 
 <ng-template #content let-c="close" let-d="dismiss">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
@@ -31,7 +136,7 @@
     </div>
 </ng-template>
 
-<div cdkDropListGroup id="container">
+<div cdkDropListGroup id="drag-drop-container">
     <div id=player1container>
         <div id="user-names-parent">
             <p class="user-names">PLAYER ONE</p>
@@ -140,7 +245,7 @@
     </div>
 
 
-</div>
+
 
     <div id="salary">
           <img src="assets/dollar-sign.jpg" id="dollar-sign">Player 2 Salary - ${{playerTwoSalary | number}}
@@ -153,5 +258,6 @@
 
 
 
-<button id="player-one-draft-button" (click)="player1Drafted()" style="position: static">DRAFT!</button>
-<button id="player-two-draft-button" (click)="player2Drafted()" style="position: static">DRAFT!</button>
+    <button id="player-one-draft-button" (click)="player1Drafted()" style="position: static">DRAFT!</button>
+    <button id="player-two-draft-button" (click)="player2Drafted()" style="position: static">DRAFT!</button>
+</div>
