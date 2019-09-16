@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BuildObjectService } from '../build-object.service';
+import { Player } from '../interfaces'
 
 @Component({
   selector: 'app-playerone',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayeroneComponent implements OnInit {
 
-  constructor() { }
+  availablePlayers: Player[];
+
+  constructor(private buildObject: BuildObjectService) { }
 
   ngOnInit() {
+    this.availablePlayers = this.buildObject.getPlayerList();
   }
 
 }
