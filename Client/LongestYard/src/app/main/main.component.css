@@ -58,11 +58,15 @@ a:hover {
     #playerscontainer {
         display: flex;
         height: auto;
+        justify-content: center;
     }
     .user-names {
         text-align: center;
         width: 100%;
         height: 30px;
+    }
+    #logo-container {
+        width: 100%;
     }
     #joint-position-player {
         width: 100%;
@@ -98,7 +102,7 @@ a:hover {
     #salary {
         display: flex;
         align-self: flex-end;
-        width: 100%;
+        width: 20%;
         float: bottom;
         height: 50px;
         font-family: 'Radiant';
@@ -139,7 +143,7 @@ a:hover {
     #player-list {
         width: 100%;
     }
-    .player1-list {
+    .players-list {
         border: solid 1px #ccc;
         min-height: 500px;
         margin: 20px 0 0 0;
@@ -147,7 +151,7 @@ a:hover {
         overflow: visible;
         display: block;
         height: auto;
-        width: 87%;
+        width: 100%;
         background-image: linear-gradient(180deg, #98CD8D 25%, #F6F0CF 25%, #F6F0CF 50%, #98CD8D 50%, #98CD8D 75%, #F6F0CF 75%, #F6F0CF 100%);
         background-size: 356.00px 356.00px;
     }
@@ -188,7 +192,7 @@ a:hover {
         font-size: 14px;
     }
     #salary {
-        width: 100%;
+        width: 20%;
         justify-content: center;
         order: 4;
         align-self: flex-end;
@@ -211,10 +215,30 @@ a:hover {
         display: flex;
         height: 80%;
     }
+    #draft-salary-container {
+        width: 100%;
+        height: 10%;
+        display: flex;
+        align-self: flex-end;
+        float: bottom;
+        justify-content: space-between;
+        position: fixed;
+        bottom: 0;
+        background-color: #4E5144;
+    }
+    .draft-button {
+        color: #E5E8C9;
+        background-color: #4E5144;
+        border-style: solid;
+        border-color: #E5E8C9;
+        border-width: 1px;
+        height: 50%;
+    }
     .user-names {
         text-align: center;
         width: 100%;
         height: 30px;
+        color: white;
         font-family: 'Sporter';
         font-size: 3em;
         margin-bottom: 20px;
@@ -253,13 +277,6 @@ a:hover {
         width: 30%;
         flex-direction: column;
         height: 85%;
-    }
-    #salary {
-        display: flex;
-        align-self: flex-end;
-        width: 100%;
-        float: bottom;
-        height: 50px;
     }
     #K {
         border-bottom: none;
@@ -352,45 +369,56 @@ a:hover {
         background: white;
         font-size: 14px;
     }
-    #salary {
-        width: 100%;
-        justify-content: center;
-        order: 4;
-        align-self: flex-end;
-        font-family: 'StripesCaps';
-        font-size: 3em;
-        color: #4C934C;
-        background-color: white;
-        border-style: solid;
-        border-width: 3px;
-        border-color: #4C934C;
-        border-radius: 4px;
+    #player-salary-title {
+        font-size: .25em;
+        width: 30%;
+        margin: 0 0 0 0;
     }
-    #draft-button {
-        order: 5;
-        width: 50%;
-        height: 50px;
-        background-color: #8B0000;
-        color: white;
+    #salary {
+        width: 60%;
+        margin: 0 0 0 0;
+    }
+    #salary-player-1 {
+        margin-left: 200px;
         display: flex;
         justify-content: center;
-        align-self: flex-end;
+        flex-direction: column;
+        width: 33%;
+        height: 100%;
+        order: 1;
+        font-family: 'StripesCaps';
+        font-size: 2em;
+        color: #E5E8C9;
+        background-color: #4E5144;
+    }
+    #salary-player-2 {
+        margin-left: 120px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: 100%;
+        width: 33%;
+        order: 3;
+        font-family: 'StripesCaps';
+        font-size: 2em;
+        color: #E5E8C9;
+        background-color: #4E5144;
     }
     #draft-button-container {
+        order: 2;
         display: flex;
-        justify-content: center;
-        width: 50%;
-        align-self: flex-end;
-        position: fixed;
-        bottom: 0;
-        margin-bottom: 10px;
+        justify-content: space-between;
+        width: 33%;
+        height: 100%;
+        color: #E5E8C9;
+        background-color: #4E5144;
+        margin-left: 15px;
+        margin-right: 15px;
+        align-items: baseline;
+        padding-top: 17px;
     }
     #dollar-sign {
-
-        height: 80%;
-        width: 10%;
-        margin-right: 10px;
-        margin-top: 4px;
+        font-size: 1em;
     }
     #modal-title,
     #modal-body {
