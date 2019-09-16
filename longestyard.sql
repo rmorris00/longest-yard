@@ -72,6 +72,6 @@
 -- ALTER TABLE player add careerstat3 VARCHAR(100);
 -- ALTER TABLE player add careerstat4 VARCHAR(100);
 -- ALTER TABLE player add careerstat5 VARCHAR(100);
--- ALTER TABLE player add careerblurb VARCHAR(250);
+-- ALTER TABLE player add careerblurb VARCHAR(500);
 
 -- select * from player;
