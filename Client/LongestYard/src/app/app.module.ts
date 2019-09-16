@@ -10,15 +10,22 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
+import { PlayeroneComponent } from './playerone/playerone.component';
+import { PlayertwoComponent } from './playertwo/playertwo.component';
 
 
 const appRoutes: Routes = [
   { path: '', component:LandingComponent},
-  { path: 'home', component: MainComponent },
+  { path: 'home', component: MainComponent, 
+   children:[
+    { path: '', component: PlayeroneComponent},
+    { path: 'player1', component: PlayeroneComponent},
+    { path: 'player2', component: PlayertwoComponent},
+    ]},
   { path: '*',
     redirectTo: '',
     pathMatch: 'full'
@@ -30,7 +37,9 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     MainComponent,
-    LandingComponent
+    LandingComponent,
+    PlayeroneComponent,
+    PlayertwoComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +51,6 @@ const appRoutes: Routes = [
     MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
-    NgbModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

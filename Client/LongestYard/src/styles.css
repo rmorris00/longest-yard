@@ -6,3 +6,21 @@
      width: 100%;
      margin: 0;
  }
+
+ body {
+    background: url(/assets/background_img_5.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+ }
+
+ @font-face {
+    font-family: 'Sporter';
+    src: url(/src/assets/Sporter.ttf);
+}
+
+@font-face {
+    font-family: 'CurrencyRegular';
+    src: url(/src/assets/StripesCaps.ttf);
+}
