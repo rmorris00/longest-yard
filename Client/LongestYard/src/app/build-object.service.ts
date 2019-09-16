@@ -32,7 +32,7 @@ export class BuildObjectService {
       listOfPlayers[i].playerCost = result;
       let costResult = this.getPlayerCost(listOfPlayers[i]);
       listOfPlayers[i].playerCost = costResult;
-      console.log(listOfPlayers[i].av, listOfPlayers[i].position, listOfPlayers[i].firstName, listOfPlayers[i].lastName, listOfPlayers[i].playerCost)
+      // console.log(listOfPlayers[i].av, listOfPlayers[i].position, listOfPlayers[i].firstName, listOfPlayers[i].lastName, listOfPlayers[i].playerCost)
       });
     }
     return listOfPlayers;
