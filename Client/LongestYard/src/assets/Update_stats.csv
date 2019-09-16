@@ -1,4 +1,4 @@
-playerid,position,firstname,lastname,av,playerpic,mugshotpic,apidataavailable,price,careerstat1,careerstat2,careerstat3,careerstat4,careerstat5,careerblurb
+﻿playerid,position,firstname,lastname,av,playerpic,mugshotpic,apidataavailable,price,careerstat1,careerstat2,careerstat3,careerstat4,careerstat5,careerblurb
 2,QB,Johnny,Manziel,5,/assets/playerPhotos/JohnnyManziel.png,/assets/playerPhotos/JohnnyManzielMugshot.png,TRUE,0,QB Record 2-6,Completion Percent - 57%,Total Yards - 1675,Touchdowns - 7,,Johnny Football quickly became Johnny Waste of #1 Overall Draft Pick.
 3,QB,Chad,Kelly,0,/assets/playerPhotos/ChadKelly.png,/assets/playerPhotos/ChadKellyMugshot.jpg,TRUE,0,QB Record 0-0,Completion Percent - 0%,Total Yards - -1,Touchdowns - 0,,"So, you've spent all your salary and are looking for a cheap QB. You might want to keep looking."
 4,QB,Steve,McNair,126,/assets/playerPhotos/SteveMcNair.jpg,/assets/playerPhotos/SteveMcNairMugshot.jpg,TRUE,0,QB Record 91-62,Completion Percent - 60.1%,Total Yards - 31304,Touchdowns - 174,,"The legendary Titans QB was fatally shot by his mistress in 2009, two days after the pair were arrested in a DUI incident."
