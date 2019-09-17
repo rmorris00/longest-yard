@@ -210,6 +210,17 @@ a:hover {
         display: flex;
         flex-direction: row;
     }
+    #app-header {
+        display: none;
+    }
+    #stat-list {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: .75em;
+    }
     #matExpansionPanelContent {
         display: block;
     }
@@ -234,15 +245,22 @@ a:hover {
         justify-content: space-between;
         position: fixed;
         bottom: 0;
-        background-color: #4E5144;
+        background-color: #EFF8FF;
+    }
+    #player-one-draft-button,
+    #player-two-draft-button {
+        border-radius: 25px;
+        background-color: white;
     }
     .draft-button {
-        color: #E5E8C9;
-        background-color: #4E5144;
+        color: #648BAF;
+        background-color: #EFF8FF;
         border-style: solid;
-        border-color: #E5E8C9;
+        border-color: #648BAF;
         border-width: 1px;
-        height: 50%;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
     }
     .user-names {
         text-align: center;
@@ -292,21 +310,10 @@ a:hover {
         border-bottom: none;
     }
     li {
-        height: 89px;
-        border-bottom: solid 1px #ccc;
-        color: rgba(0, 0, 0, 0.87);
-        display: flex;
-        width: 100%;
-        text-align: center;
-        flex-direction: row;
-        vertical-align: middle;
-        align-items: center;
-        box-sizing: border-box;
-        cursor: move;
-        background: white;
-        font-size: 14px;
+        padding-top: 2.5px;
+        padding-bottom: 2.5px;
     }
-    #position-list {
+    */ #position-list {
         margin-top: 36px;
         padding: 0px;
         width: 13%;
@@ -327,15 +334,19 @@ a:hover {
     }
     .player1-list {
         border: solid 1px #ccc;
-        min-height: 500px;
+        min-height: 775px;
         margin: 36px 0 0 0;
         border-radius: 4px;
-        overflow: visible;
+        overflow: scroll;
         display: block;
         height: auto;
         width: 100%;
         background-image: linear-gradient(180deg, #4C934C 25%, #50C456 25%, #50C456 50%, #4C934C 50%, #4C934C 75%, #50C456 75%, #50C456 100%);
         background-size: 356.00px 356.00px;
+    }
+    #players-list {
+        height: 725px;
+        overflow-y: scroll;
     }
     #drag-drop-container {
         display: flex;
@@ -379,12 +390,12 @@ a:hover {
         color: rgba(0, 0, 0, 0.87);
         display: flex;
         flex-direction: column;
+        overflow: visible;
         align-items: center;
         justify-content: center;
-        box-sizing: border-box;
-        cursor: move;
         background: white;
-        font-size: 14px;
+        font-size: 12px;
+        cursor: pointer;
     }
     #player-salary-title {
         font-size: .25em;
@@ -392,34 +403,39 @@ a:hover {
         margin: 0 0 0 0;
     }
     #salary {
-        width: 60%;
+        width: 100%;
         margin: 0 0 0 0;
+        font-family: "Helvetica Neue";
+        font-weight: 100;
+        padding: 0 0.12em;
+        line-height: 1.2em;
+        font-size: 1.2em;
     }
     #salary-player-1 {
-        margin-left: 200px;
+        margin-left: 100px;
         display: flex;
         justify-content: center;
-        flex-direction: column;
+        flex-direction: row;
         width: 33%;
         height: 100%;
         order: 1;
         font-family: 'StripesCaps';
         font-size: 2em;
-        color: #E5E8C9;
-        background-color: #4E5144;
+        color: #648BAF;
+        background-color: #EFF8FF;
     }
     #salary-player-2 {
-        margin-left: 120px;
+        margin-right: 70px;
         display: flex;
         justify-content: center;
-        flex-direction: column;
+        flex-direction: row;
         height: 100%;
         width: 33%;
         order: 3;
         font-family: 'StripesCaps';
         font-size: 2em;
-        color: #E5E8C9;
-        background-color: #4E5144;
+        color: #648BAF;
+        background-color: #EFF8FF;
     }
     #draft-button-container {
         order: 2;
@@ -427,8 +443,8 @@ a:hover {
         justify-content: space-between;
         width: 33%;
         height: 100%;
-        color: #E5E8C9;
-        background-color: #4E5144;
+        color: #648BAF;
+        background-color: #EFF8FF;
         margin-left: 15px;
         margin-right: 15px;
         align-items: baseline;

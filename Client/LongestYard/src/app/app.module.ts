@@ -10,7 +10,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { Ng2OdometerModule } from 'ng2-odometer';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
@@ -43,6 +43,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    Ng2OdometerModule.forRoot(),
     BrowserAnimationsModule,
     DragDropModule,
     FormsModule,
