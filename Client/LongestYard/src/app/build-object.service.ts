@@ -148,5 +148,6 @@ export class BuildObjectService {
 
   getPlayerList(){
     return this.builtListOfPlayers;
-  }
+  };
+
 }
