@@ -189,13 +189,14 @@
                     <mat-expansion-panel *ngIf="p.position === positionAllowedToBeDrafted" class="example-box" cdkDrag>
                         <mat-expansion-panel-header>
                             <mat-panel-title *ngIf="p.position === positionAllowedToBeDrafted">
-                                <button id="player-one-draft-button" class="draft-button" (click)="player1Drafted()" style="position: static">P1 Ready</button>
+                                <button *ngIf = "p.playerId === selectedPlayer.playerId && playerOneDrafted === false" id="player-one-draft-button" class="draft-button" (click)="player1Drafted($event)" style="position: static">P1 Ready</button>
                                 <img class="player-img" src="{{p.picture}}">
                                 <p>{{p.position}}</p>
                             </mat-panel-title>
                             <mat-panel-description (click)="playerSelected(p)" *ngIf="p.position === positionAllowedToBeDrafted">
 
-                                <p>{{p.firstName}} {{p.lastName}} {{p.playerCost | currency}}</p> <button id="player-two-draft-button" class="draft-button" (click)="player2Drafted()" style="position: static">P2 Ready</button>
+                                <p>{{p.firstName}} {{p.lastName}} {{p.playerCost | currency}}</p> 
+                                <button *ngIf = "p.playerId === selectedPlayer.playerId && playerTwoDrafted === false" id="player-two-draft-button" class="draft-button" (click)="player2Drafted()" style="position: static">P2 Ready</button>
                             </mat-panel-description>
                         </mat-expansion-panel-header>
                         <ng-template matExpansionPanelContent id="matExpansionPanelContent">

@@ -200,7 +200,14 @@ export class MainComponent implements OnInit {
 
   teamPlayer1 : Player[] = [];
   teamPlayer2 : Player[] = [];
-  selectedPlayer : Player;
+  selectedPlayer : Player = {
+    firstName: "Johnny",
+    lastName: "Manziel",
+    position: "QB",
+    picture: '',
+    playerId: 2,
+    av: 1
+  };
   playerOneDrafted : boolean = false;
   playerTwoDrafted: boolean = false;
   playerOneSalary : number = 10000;
@@ -314,8 +321,12 @@ export class MainComponent implements OnInit {
       this.positionToBeDrafted = "K"
       this.positionAllowedToBeDrafted = this.positionToBeDrafted;
     }
+    else if (this.draftRound > 8) {
+      this.positionToBeDrafted = "No More Picks"
+      this.positionAllowedToBeDrafted = this.positionToBeDrafted; 
+    }
     else if (this.draftRound > 9 || this.draftRound < 1){
-      alert("woah, something is wrong");
+      alert("woah, something is wrong")
     };
   };
 
@@ -334,6 +345,7 @@ export class MainComponent implements OnInit {
     };
     return this.playerTwoTotalScore;
   };
+
 
 
   open(content) {
