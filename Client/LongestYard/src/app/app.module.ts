@@ -11,7 +11,7 @@ import {MatInputModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng2OdometerModule } from 'ng2-odometer';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { PlayeroneComponent } from './playerone/playerone.component';
@@ -52,6 +52,7 @@ const appRoutes: Routes = [
     MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
+    NgbModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
