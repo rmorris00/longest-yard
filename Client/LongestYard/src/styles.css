@@ -17,10 +17,28 @@
 
  @font-face {
     font-family: 'Sporter';
-    src: url(/src/assets/Sporter.ttf);
+    src: url(/assets/Sporter.ttf);
 }
 
 @font-face {
     font-family: 'CurrencyRegular';
-    src: url(/src/assets/StripesCaps.ttf);
+    src: url(/assets/StripesCaps.ttf);
+}
+
+@font-face {
+    font-family: 'Code_Pro_Light';
+    src: url('/assets/Code_Pro_Light_Demo-webfont.woff2') format('woff2'),
+         url('/assets/Code_Pro_Light_Demo-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Code_Pro';
+    src: url('/assets/Code_Pro_Demo-webfont.woff2') format('woff2'),
+         url('/assets/Code_Pro_Demo-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
