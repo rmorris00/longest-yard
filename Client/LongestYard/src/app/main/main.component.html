@@ -153,7 +153,7 @@
                 <li id="K">K</li>
             </ul> -->
             <mat-accordion class="player1-list">
-                <mat-expansion-panel class="example-box" *ngFor="let p of mikePlayer1">
+                <mat-expansion-panel class="example-box" *ngFor="let p of teamPlayer1">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
                             <p>{{p.position}}</p>
@@ -224,13 +224,12 @@
             </ul> -->
 
             <mat-accordion class="player1-list">
-                <mat-expansion-panel class="example-box" *ngFor="let p of mikePlayer2">
+                <mat-expansion-panel class="example-box" *ngFor="let p of teamPlayer2">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
 
                             <p>{{p.position}}</p>
-                            <!-- <img [src] = "p.picture"/>
-                             -->
+                            <img src = "{{p.mugshot}}"/>
                             <p>{{p.position}}</p><i class="material-icons" (click)="removePlayer(testPlayer)">clear</i>
 
                         </mat-panel-title>
@@ -252,7 +251,7 @@
         <div id="salary-player-1">
             <link rel="stylesheet" href="/assets/odometer-0.4.6/themes/odometer-theme-default.css" />
             <p id="player-salary-title">Player 1 Salary</p>
-            <p id="salary">${{playerOneSalary | number}}</p>
+            <p id="salary">{{playerOneSalary | currency}}</p>
         </div>
 
         <div id="draft-button-container">
@@ -266,7 +265,7 @@
         <div id="salary-player-2">
             <link rel="stylesheet" href="/assets/odometer-0.4.6/themes/odometer-theme-default.css" />
             <p id="player-salary-title">Player 2 Salary</p>
-            <p id="salary">${{playerTwoSalary | number}}</p>
+            <p id="salary">{{playerTwoSalary | currency}}</p>
         </div>
 
 
