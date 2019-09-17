@@ -1,7 +1,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism.css" />
-
+<script src="bower_components/angular-odometer/dist/angular-odometer.js"></script>
+<script src="bower_components/odometer/odometer.min.js"></script>
 <header id="app-header">
     <h3 id="logo">Logo</h3>
 
@@ -153,18 +153,23 @@
                 <li id="K">K</li>
             </ul> -->
             <mat-accordion class="player1-list">
-                <mat-expansion-panel class="example-box" *ngFor="let p of teamPlayer1">
+                <mat-expansion-panel class="example-box" *ngFor="let p of mikePlayer1" hideToggle>
                     <mat-expansion-panel-header>
                         <mat-panel-title>
                             <img class="player-img" src="{{p.mugshot}}">
-                            <p>{{p.position}}</p>
+                            <p>{{p.position}} {{p.firstName}} {{p.lastName}}</p>
                         </mat-panel-title>
                         <mat-panel-description>
-                            <p>{{p.firstName}} {{p.lastName}}</p>
+
                         </mat-panel-description>
                     </mat-expansion-panel-header>
                     <ng-template matExpansionPanelContent id="matExpansionPanelContent">
-                        {{p.careerStat1}} {{p.careerStat2}} {{p.careerStat3}} {{p.careerBlurb}}
+                        <ul id=stat-list>
+                            <li>{{p.careerStat1}}</li>
+                            <li>{{p.careerStat2}}</li>
+                            <li>{{p.careerStat3}}</li>
+                            <li>{{p.careerBlurb}}</li>
+                        </ul>
                     </ng-template>
                 </mat-expansion-panel>
             </mat-accordion>
@@ -186,21 +191,32 @@
 
             <mat-accordion class="example-list" id="players-list">.
                 <ng-container *ngFor="let p of availablePlayers">
-                    <mat-expansion-panel *ngIf="p.position === positionAllowedToBeDrafted" class="example-box" cdkDrag>
+                    <mat-expansion-panel *ngIf="p.position === positionAllowedToBeDrafted" class="example-box" hideToggle (click)="playerSelected(p)">
+
                         <mat-expansion-panel-header>
                             <mat-panel-title *ngIf="p.position === positionAllowedToBeDrafted">
-                                <button *ngIf = "p.playerId === selectedPlayer.playerId && playerOneDrafted === false" id="player-one-draft-button" class="draft-button" (click)="player1Drafted($event)" style="position: static">P1 Ready</button>
+                                <button *ngIf="p.playerId === selectedPlayer.playerId && playerOneDrafted === false" id="player-one-draft-button" class="draft-button" (click)="player1Drafted($event)" style="position: static"><i class="material-icons">
+                                    arrow_back
+                                    </i></button>
                                 <img class="player-img" src="{{p.picture}}">
-                                <p>{{p.position}}</p>
+                                <p>{{p.position}} {{p.firstName}} {{p.lastName}} {{p.playerCost | currency}}</p>
                             </mat-panel-title>
-                            <mat-panel-description (click)="playerSelected(p)" *ngIf="p.position === positionAllowedToBeDrafted">
+                            <mat-panel-description>
 
-                                <p>{{p.firstName}} {{p.lastName}} {{p.playerCost | currency}}</p> 
-                                <button *ngIf = "p.playerId === selectedPlayer.playerId && playerTwoDrafted === false" id="player-two-draft-button" class="draft-button" (click)="player2Drafted()" style="position: static">P2 Ready</button>
+
+
+                                <button *ngIf="p.playerId === selectedPlayer.playerId && playerTwoDrafted === false" id="player-two-draft-button" class="draft-button" (click)="player2Drafted()" style="position: static"><i class="material-icons">
+                                    arrow_forward
+                                    </i></button>
                             </mat-panel-description>
                         </mat-expansion-panel-header>
                         <ng-template matExpansionPanelContent id="matExpansionPanelContent">
-                            {{p.careerStat1}} {{p.careerStat2}} {{p.careerStat3}} {{p.careerBlurb}}
+                            <ul id=stat-list>
+                                <li>{{p.careerStat1}}</li>
+                                <li>{{p.careerStat2}}</li>
+                                <li>{{p.careerStat3}}</li>
+                                <li>{{p.careerBlurb}}</li>
+                            </ul>
                         </ng-template>
                     </mat-expansion-panel>
                 </ng-container>
@@ -229,13 +245,10 @@
             </ul> -->
 
             <mat-accordion class="player1-list">
-                <mat-expansion-panel class="example-box" *ngFor="let p of teamPlayer2">
+                <mat-expansion-panel class="example-box" *ngFor="let p of teamPlayer2" hideToggle>
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-
-
-                            <!-- <img [src] = "p.picture"/>
-                             -->
+                            <img class="player-img" src="{{p.mugshot}}">
                             <p>{{p.position}}</p>
 
                         </mat-panel-title>
@@ -244,7 +257,12 @@
                         </mat-panel-description>
                     </mat-expansion-panel-header>
                     <ng-template matExpansionPanelContent id="matExpansionPanelContent">
-                        {{p.careerStat1}} {{p.careerStat2}} {{p.careerStat3}} {{p.careerBlurb}}
+                        <ul id=stat-list>
+                            <li>{{p.careerStat1}}</li>
+                            <li>{{p.careerStat2}}</li>
+                            <li>{{p.careerStat3}}</li>
+                            <li>{{p.careerBlurb}}</li>
+                        </ul>
                     </ng-template>
                 </mat-expansion-panel>
             </mat-accordion>
@@ -256,8 +274,11 @@
     <div id="draft-salary-container">
         <div id="salary-player-1">
             <link rel="stylesheet" href="/assets/odometer-0.4.6/themes/odometer-theme-default.css" />
-            <p id="player-salary-title">Player 1 Salary</p>
-            <p id="salary">{{playerOneSalary | currency}}</p>
+
+            <p id="salary">
+                $
+                <ng2-odometer id="salary" [number]="playerOneSalary" [theme]="'plaza'">{{playerOneSalary | currency}}</ng2-odometer>
+            </p>
         </div>
 
         <div id="draft-button-container">
@@ -269,13 +290,18 @@
 
 
         <div id="salary-player-2">
-            <link rel="stylesheet" href="/assets/odometer-0.4.6/themes/odometer-theme-default.css" />
-            <p id="player-salary-title">Player 2 Salary</p>
-            <p id="salary">{{playerTwoSalary | currency}}</p>
+
+
+            <p id="salary">$
+                <ng2-odometer id="salary" [number]="playerTwoSalary" [theme]="'plaza'">{{playerTwoSalary | currency}}</ng2-odometer>
+            </p>
         </div>
 
 
 
     </div>
+
+
+
 
 </div>
