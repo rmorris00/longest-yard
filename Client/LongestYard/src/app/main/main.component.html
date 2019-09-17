@@ -2,17 +2,17 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism.css" />
 
-    <header id="app-header">
-        <h3 id="logo">Logo</h3>
-    
-        <nav id="nav-items">
-            <a routerLink="player1">PlayerOne</a>
-            <a routerLink="player2">PlayerTwo</a>
-        </nav>
-    </header>   
-    <div class="mobile-roster-container">
-        <router-outlet></router-outlet>
-    </div>
+<header id="app-header">
+    <h3 id="logo">Logo</h3>
+
+    <nav id="nav-items">
+        <a routerLink="player1">PlayerOne</a>
+        <a routerLink="player2">PlayerTwo</a>
+    </nav>
+</header>
+<div class="mobile-roster-container">
+    <router-outlet></router-outlet>
+</div>
 
 <!-- 
     <div cdkDropListGroup id="drag-drop-container">
@@ -135,7 +135,7 @@
     </div>
 </ng-template>
 
-<div cdkDropListGroup id="container">
+<div id="container">
     <div id=logo-container><img id="logo" src="assets/logo.png" width="100px" height="100px"></div>
     <div id=player1container>
         <div id="user-names-parent">
@@ -156,13 +156,14 @@
                 <mat-expansion-panel class="example-box" *ngFor="let p of mikePlayer1">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
+                            <img class="player-img" src="{{p.mugshot}}">
                             <p>{{p.position}}</p>
                         </mat-panel-title>
                         <mat-panel-description>
                             <p>{{p.firstName}} {{p.lastName}}</p>
                         </mat-panel-description>
                     </mat-expansion-panel-header>
-                    <ng-template matExpansionPanelContent>
+                    <ng-template matExpansionPanelContent id="matExpansionPanelContent">
                         {{p.careerStat1}} {{p.careerStat2}} {{p.careerStat3}} {{p.careerBlurb}}
                     </ng-template>
                 </mat-expansion-panel>
@@ -188,10 +189,13 @@
                     <mat-expansion-panel *ngIf="p.position === positionAllowedToBeDrafted" class="example-box" cdkDrag>
                         <mat-expansion-panel-header>
                             <mat-panel-title *ngIf="p.position === positionAllowedToBeDrafted">
+                                <button id="player-one-draft-button" class="draft-button" (click)="player1Drafted()" style="position: static">P1 Ready</button>
+                                <img class="player-img" src="{{p.picture}}">
                                 <p>{{p.position}}</p>
                             </mat-panel-title>
                             <mat-panel-description (click)="playerSelected(p)" *ngIf="p.position === positionAllowedToBeDrafted">
-                                <p>{{p.firstName}} {{p.lastName}}</p>
+
+                                <p>{{p.firstName}} {{p.lastName}} {{p.playerCost | currency}}</p> <button id="player-two-draft-button" class="draft-button" (click)="player2Drafted()" style="position: static">P2 Ready</button>
                             </mat-panel-description>
                         </mat-expansion-panel-header>
                         <ng-template matExpansionPanelContent id="matExpansionPanelContent">
@@ -228,17 +232,17 @@
                     <mat-expansion-panel-header>
                         <mat-panel-title>
 
-                            <p>{{p.position}}</p>
+
                             <!-- <img [src] = "p.picture"/>
                              -->
-                            <p>{{p.position}}</p><i class="material-icons" (click)="removePlayer(testPlayer)">clear</i>
+                            <p>{{p.position}}</p>
 
                         </mat-panel-title>
                         <mat-panel-description>
                             <p>{{p.firstName}} {{p.lastName}}</p>
                         </mat-panel-description>
                     </mat-expansion-panel-header>
-                    <ng-template matExpansionPanelContent>
+                    <ng-template matExpansionPanelContent id="matExpansionPanelContent">
                         {{p.careerStat1}} {{p.careerStat2}} {{p.careerStat3}} {{p.careerBlurb}}
                     </ng-template>
                 </mat-expansion-panel>
@@ -256,9 +260,9 @@
         </div>
 
         <div id="draft-button-container">
-            <button id="player-one-draft-button" class="draft-button" (click)="player1Drafted()" style="position: static">P1 Ready</button>
+
             <button id="draft-button" class="draft-button" (click)="open(content)">DRAFT!</button>
-            <button id="player-two-draft-button" class="draft-button" (click)="player2Drafted()" style="position: static">P2 Ready</button>
+
 
         </div>
 

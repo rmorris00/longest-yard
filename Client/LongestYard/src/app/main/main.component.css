@@ -15,15 +15,14 @@
 #app-header {
     position: fixed;
     top: 0px;
-    padding:0;
-    margin:0;
+    padding: 0;
+    margin: 0;
     display: flex;
     background-color: white;
     width: 100%;
 }
 
 #logo {
-    
     margin-left: 5px;
 }
 
@@ -34,23 +33,21 @@
 }
 
 a {
-    text-decoration:none;
+    text-decoration: none;
     color: black;
     margin-top: 10px;
     margin-left: 5px;
-    
 }
 
 a:hover {
-    color:grey;
+    color: grey;
 }
 
-.mobile-roster-container{
-
+.mobile-roster-container {
     height: 85%;
     margin-block-start: 100px;
-   
 }
+
 
 /* @media only screen and (max-width: 768px) {
     #player2container,
@@ -209,11 +206,24 @@ a:hover {
 @media only screen and (min-width: 768px) {}
 
 @media only screen and (min-width: 1024px) {
+    #container {
+        display: flex;
+        flex-direction: row;
+    }
+    #matExpansionPanelContent {
+        display: block;
+    }
     #player2container,
     #player1container,
     #playerscontainer {
         display: flex;
         height: 80%;
+    }
+    #player2container {
+        margin-right: 100px;
+    }
+    .mobile-roster-container {
+        display: none;
     }
     #draft-salary-container {
         width: 100%;
@@ -259,7 +269,7 @@ a:hover {
     }
     #players-container {
         order: 2;
-        width: 30%;
+        width: 33%;
         height: 85%;
     }
     #players-container-child {
@@ -268,13 +278,13 @@ a:hover {
     }
     #player1container {
         order: 2;
-        width: 30%;
+        width: 33%;
         flex-direction: column;
         height: 85%;
     }
     #player2container {
         order: 2;
-        width: 30%;
+        width: 33%;
         flex-direction: column;
         height: 85%;
     }
@@ -323,7 +333,7 @@ a:hover {
         overflow: visible;
         display: block;
         height: auto;
-        width: 87%;
+        width: 100%;
         background-image: linear-gradient(180deg, #4C934C 25%, #50C456 25%, #50C456 50%, #4C934C 50%, #4C934C 75%, #50C456 75%, #50C456 100%);
         background-size: 356.00px 356.00px;
     }
@@ -345,6 +355,13 @@ a:hover {
     }
     #FLEX {
         margin-left: -12px;
+    }
+    .player-img {
+        border: 2px solid white;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        margin: 0.95em 0.55em 0.25em 0.55em;
     }
     .example-list {
         border: solid 1px #ccc;
