@@ -1,10 +1,11 @@
+
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism.css" />
 <script src="bower_components/angular-odometer/dist/angular-odometer.js"></script>
 <script src="bower_components/odometer/odometer.min.js"></script>
 
     <header id="app-header">
-        <img id="mobile-logo" src="assets/logo.png">
+        <h3 id="logo">Logo</h3>
     
         <nav id="nav-items">
             <a routerLink="player1">PlayerOne</a>
@@ -15,6 +16,112 @@
         <router-outlet></router-outlet>
     </div>
 
+<!-- 
+    <div cdkDropListGroup id="drag-drop-container">
+        <div id=player1container>
+            <div id="user-names-parent">
+                <p class="user-names">PLAYER ONE</p>
+            </div>
+            <div id="joint-position-player">
+                <ul id="position-list">
+                    <li>QB</li>
+                    <li>RB</li>
+                    <li>RB</li>
+                    <li>WR</li>
+                    <li>WR</li>
+                    <li>TE</li>
+                    <li id="flex">FLEX</li>
+                    <li id="K">K</li>
+                </ul>
+                <mat-accordion cdkDropList #players2List="cdkDropList" [cdkDropListData]="playerRoster1" class="player1-list" (cdkDropListDropped)="drop($event)">
+                    <mat-expansion-panel class="example-box" *ngFor="let player of playerRoster1">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <p>{{player.position}}</p>
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                <p>{{player.firstname}} {{player.lastname}}</p>
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <ng-template matExpansionPanelContent>
+                            {{player.careerstat1}} {{player.careerstat2}} {{player.careerstat3}} {{player.careerblurb}}
+                        </ng-template>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+            <div id="salary"><img src="assets/dollar-sign.jpg" id="dollar-sign">100,000</div>
+        </div>
+
+
+
+
+
+
+
+        <div id="players-container">
+            <div id="players-container-child">
+                <div id="user-names-parent">
+                    <p class="user-names">Players</p>
+                </div>
+
+                <mat-accordion cdkDropList #players2List="cdkDropList" [cdkDropListData]="availPlayers " class="example-list avail-player-list" id="players-list" (cdkDropListDropped)="drop($event)">
+                    <mat-expansion-panel class="example-box" *ngFor="let player of availPlayers" cdkDrag>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <p>{{player.position}}</p>
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                <p>{{player.firstname}} {{player.lastname}}</p>
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <ng-template matExpansionPanelContent id="matExpansionPanelContent">
+                            {{player.careerstat1}} {{player.careerstat2}} {{player.careerstat3}} {{player.careerblurb}}
+                        </ng-template>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+
+        </div>
+
+
+        <div id="player2container">
+            <div id="user-names-parent">
+                <p class="user-names">PLAYER TWO</p>
+            </div>
+            <div id="joint-position-player">
+                <ul id="position-list">
+                    <li>QB</li>
+                    <li>RB</li>
+                    <li>RB</li>
+                    <li>WR</li>
+                    <li>WR</li>
+                    <li>TE</li>
+                    <li id="flex">FLEX</li>
+                    <li id="K">K</li>
+                </ul>
+
+                <mat-accordion cdkDropList #players2List="cdkDropList" [cdkDropListData]="playerRoster2" class="player1-list" (cdkDropListDropped)="drop($event)">
+                    <mat-expansion-panel class="example-box" *ngFor="let player of playerRoster2">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <p>{{player.position}}</p>
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                <p>{{player.firstname}} {{player.lastname}}</p>
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <ng-template matExpansionPanelContent>
+                            {{player.careerstat1}} {{player.careerstat2}} {{player.careerstat3}} {{player.careerblurb}}
+                        </ng-template>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+            <div id="salary"><img src="assets/dollar-sign.jpg" id="dollar-sign">100,000</div>
+
+        </div>
+        <div id="draft-button-container"><button id="draft-button">DRAFT!</button></div>
+
+    </div> -->
 
 
 <ng-template #content let-c="close" let-d="dismiss">
@@ -31,12 +138,11 @@
 </ng-template>
 
 <div cdkDropListGroup id="drag-drop-container">
-    <div id=logo-container><img id="logo" src="assets/logo.png" width="100px" height="100px"></div>
     <div id=player1container>
         <div id="user-names-parent">
             <p class="user-names">PLAYER ONE</p>
         </div>
-        <div id="joint-position-player">
+        <div id="joint-position-player" style="margin-right: 40px">
             <!-- <ul id="position-list">
                 <li>QB</li>
                 <li>RB</li>
@@ -69,7 +175,7 @@
                 </mat-expansion-panel>
             </mat-accordion>
         </div>
-
+        <div id="salary"><img src="assets/dollar-sign.jpg" id="dollar-sign">Player 1 Salary - ${{playerOneSalary | number}}</div>
     </div>
 
 
@@ -81,11 +187,12 @@
     <div id="players-container">
         <div id="players-container-child">
             <div id="user-names-parent">
-                <p id="draftPosition" class="user-names">{{positionToBeDrafted}}</p>
+                <p id = "draftPosition" class="user-names">{{positionToBeDrafted}}</p>
             </div>
 
             <mat-accordion class="example-list" id="players-list">.
                 <ng-container *ngFor="let p of availablePlayers">
+<<<<<<< Updated upstream
                     <mat-expansion-panel *ngIf="p.position === positionAllowedToBeDrafted" class="example-box" hideToggle (click)="playerSelected(p)">
 
                         <mat-expansion-panel-header>
@@ -103,6 +210,15 @@
                                 <button *ngIf="p.playerId === selectedPlayer.playerId && playerTwoDrafted === false" id="player-two-draft-button" class="draft-button" (click)="player2Drafted()" style="position: static"><i class="material-icons">
                                     arrow_forward
                                     </i></button>
+=======
+                    <mat-expansion-panel *ngIf = "p.position === positionAllowedToBeDrafted" class="example-box" cdkDrag>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title *ngIf = "p.position === positionAllowedToBeDrafted">
+                                <p>{{p.position}}</p>
+                            </mat-panel-title>
+                            <mat-panel-description (click)="playerSelected(p)" *ngIf = "p.position === positionAllowedToBeDrafted">
+                                <p>{{p.firstName}} {{p.lastName}}</p>
+>>>>>>> Stashed changes
                             </mat-panel-description>
                         </mat-expansion-panel-header>
                         <ng-template matExpansionPanelContent id="matExpansionPanelContent">
@@ -116,9 +232,7 @@
                     </mat-expansion-panel>
                 </ng-container>
             </mat-accordion>
-        </div> 
-
-
+        </div>
 
     </div>
 
@@ -162,10 +276,9 @@
                 </mat-expansion-panel>
             </mat-accordion>
         </div>
-
-
     </div>
 
+<<<<<<< Updated upstream
     <div id="draft-salary-container">
         <div id="salary-player-1">
             <link rel="stylesheet" href="/assets/odometer-0.4.6/themes/odometer-theme-default.css" />
@@ -180,10 +293,16 @@
 
             <button id="draft-button" class="draft-button" (click)="open(content)">DRAFT!</button>
 
+=======
 
-        </div>
+>>>>>>> Stashed changes
 
 
+    <div id="salary">
+          <img src="assets/dollar-sign.jpg" id="dollar-sign">Player 2 Salary - ${{playerTwoSalary | number}}
+    </div>
+
+<<<<<<< Updated upstream
         <div id="salary-player-2">
 
 
@@ -191,12 +310,22 @@
                 <ng2-odometer id="salary" [number]="playerTwoSalary" [theme]="'plaza'">{{playerTwoSalary | currency}}</ng2-odometer>
             </p>
         </div>
-
-
-
+=======
+    <div id="draft-button-container">
+        <button id="draft-button" (click)="open(content)">DRAFT!</button>
     </div>
+>>>>>>> Stashed changes
 
+
+
+
+<<<<<<< Updated upstream
 
 
 
 </div>
+=======
+    <button id="player-one-draft-button" (click)="player1Drafted()" style="position: static">DRAFT!</button>
+    <button id="player-two-draft-button" (click)="player2Drafted()" style="position: static">DRAFT!</button>
+</div>
+>>>>>>> Stashed changes

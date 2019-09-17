@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< Updated upstream
 import { BuildObjectService } from '../build-object.service';
 import { Player } from '../interfaces'
 import { WhowonService } from '../whowon.service';
+=======
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-playerone',
@@ -10,6 +13,7 @@ import { WhowonService } from '../whowon.service';
 })
 export class PlayeroneComponent implements OnInit {
 
+<<<<<<< Updated upstream
   availablePlayers: Player[];
   playerOneRoster: Player[];
 
@@ -22,5 +26,11 @@ export class PlayeroneComponent implements OnInit {
   calculateTotal(){
     this.whoWon.calculatePlayerOneScore(this.playerOneRoster);
   };
+=======
+  constructor() { }
+
+  ngOnInit() {
+  }
+>>>>>>> Stashed changes
 
 }
