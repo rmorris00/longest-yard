@@ -1,1 +1,71 @@
-<p>playertwo works!</p>
+<div class="player1-roster-header">
+        <p>$$$</p>
+        <button class="submit-btn">submit</button>
+    </div>
+    
+    <div class="position-group first-group">
+        <div class="label">QB <span class="pick-x">pick 1</span></div>
+        <ng-container *ngFor = "let p of availablePlayers">
+            <div class="position-cards rbs" *ngIf = "p.position === 'QB'">
+                <img class="player-img" src = "{{p.picture}}">
+                <div class="player-name"> {{p.firstName}} {{p.lastName}} <br> <span class="player-stats"> {{p.careerStat1}} | {{p.careerStat2}} | {{p.careerStat3}} | {{p.careerStat4}} <br> {{p.careerBlurb}} </span></div>
+                <div class="player-price"> {{p.playerCost | currency}} </div>
+            </div>
+        </ng-container>
+    </div>
+    
+    <div class="position-group">
+        <div class="label">RB <span class="pick-x">pick 2</span></div>
+        <ng-container *ngFor = "let p of availablePlayers">
+            <div class="position-cards rbs" *ngIf = "p.position === 'RB'">
+                <img class="player-img" src = "{{p.picture}}">
+                <div class="player-name"> {{p.firstName}} {{p.lastName}} <br> <span class="player-stats"> {{p.careerStat1}} | {{p.careerStat2}} | {{p.careerStat3}} | {{p.careerStat4}} </span></div>
+                <div class="player-price"> {{p.playerCost | currency}} </div>
+            </div>
+        </ng-container>
+    </div>
+    
+    <div class="position-group">
+        <div class="label">WR <span class="pick-x">pick 2</span></div>
+        <ng-container *ngFor = "let p of availablePlayers">
+                <div class="position-cards rbs" *ngIf = "p.position === 'WR'">
+                    <img class="player-img" src = "{{p.picture}}">
+                    <div class="player-name"> {{p.firstName}} {{p.lastName}} <br> <span class="player-stats"> {{p.careerStat1}} | {{p.careerStat2}} | {{p.careerStat3}} | {{p.careerStat4}} </span></div>
+                    <div class="player-price"> {{p.playerCost | currency}} </div>
+                </div>
+        </ng-container>
+    </div>
+    
+    <div class="position-group">
+        <div class="label">FLEX <span class="pick-x">pick 1</span></div>
+        <ng-container *ngFor = "let p of availablePlayers">
+                <div class="position-cards rbs" *ngIf = "p.position === 'WR' || p.position === 'RB' || p.position === 'TE'">
+                    <img class="player-img" src = "{{p.picture}}">
+                    <div class="player-name"> {{p.firstName}} {{p.lastName}} <br> <span class="player-stats"> {{p.careerStat1}} | {{p.careerStat2}} | {{p.careerStat3}} | {{p.careerStat4}} </span></div>
+                    <div class="player-price"> {{p.playerCost | currency}} </div>
+                </div>
+        </ng-container>
+    </div>
+    
+    <div class="position-group">
+        <div class="label">TE <span class="pick-x">pick 1</span></div>
+        <ng-container *ngFor = "let p of availablePlayers">
+                <div class="position-cards rbs" *ngIf = "p.position === 'TE'">
+                    <img class="player-img" src = "{{p.picture}}">
+                    <div class="player-name"> {{p.firstName}} {{p.lastName}} <br> <span class="player-stats"> {{p.careerStat1}} | {{p.careerStat2}} | {{p.careerStat3}} | {{p.careerStat4}} </span></div>
+                    <div class="player-price"> {{p.playerCost | currency}} </div>
+                </div>
+        </ng-container>
+    </div>
+    
+    <div class="position-group">
+        <div class="label">K <span class="pick-x">pick 1</span></div>
+        <ng-container *ngFor = "let p of availablePlayers">
+                <div class="position-cards rbs" *ngIf = "p.position === 'K'">
+                    <img class="player-img" src = "{{p.picture}}">
+                    <div class="player-name"> {{p.firstName}} {{p.lastName}} <br> <span class="player-stats"> {{p.careerStat1}} | {{p.careerStat2}} | {{p.careerStat3}} | {{p.careerStat4}} </span></div>
+                    <div class="player-price"> {{p.playerCost | currency}} </div>
+                </div>
+        </ng-container>
+    </div>
+    
