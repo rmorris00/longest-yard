@@ -216,6 +216,7 @@ a:hover {
     #stat-list {
         list-style-type: none;
         display: flex;
+        padding: 0 0 0 0;
         flex-direction: column;
         align-items: center;
         justify-content: center;
