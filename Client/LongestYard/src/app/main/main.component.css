@@ -251,6 +251,8 @@ a:hover {
     #player-two-draft-button {
         border-radius: 25px;
         background-color: white;
+        width: 40px;
+        height: 40px;
     }
     .draft-button {
         color: #648BAF;
