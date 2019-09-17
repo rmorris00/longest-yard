@@ -254,11 +254,12 @@ a:hover {
     }
     .draft-button {
         color: #648BAF;
+        margin-left: 25px;
         background-color: #EFF8FF;
         border-style: solid;
         border-color: #648BAF;
         border-width: 1px;
-        width: 40px;
+        width: 80%;
         height: 40px;
         cursor: pointer;
     }
