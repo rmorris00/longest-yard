@@ -1,4 +1,3 @@
-
 #drag-drop-container {
     display: none;
 }
@@ -16,7 +15,6 @@
 #mobile-logo {
     height: 50px;
     width: 50px;
-
 }
 
 #logo {
@@ -31,18 +29,14 @@
 }
 
 a {
-
-    text-decoration:none;
+    text-decoration: none;
     color: white;
-
     margin-top: 10px;
     margin-left: 5px;
 }
 
 a:hover {
-
-    color:#F900F8;
-
+    color: #F900F8;
 }
 
 .mobile-roster-container {
@@ -50,13 +44,11 @@ a:hover {
     margin-block-start: 100px;
 }
 
-
 @media only screen and (min-width: 768px) {}
 
 @media only screen and (min-width: 1024px) {
     #container {
         display: flex;
-        flex-direction: row;
     }
     #app-header {
         display: none;
@@ -80,7 +72,7 @@ a:hover {
         height: 80%;
     }
     #player2container {
-        margin-right: 100px;
+        margin-right: 0px;
     }
     .mobile-roster-container {
         display: none;
@@ -118,10 +110,18 @@ a:hover {
         text-align: center;
         width: 100%;
         height: 30px;
+        margin: 0 0 0 0;
         color: white;
         font-family: 'Sporter';
         font-size: 3em;
-        margin-bottom: 20px;
+    }
+    #player-two-user-name {
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+    #draftPosition {
+        margin-top: 105px;
+        margin-bottom: 79px;
     }
     #joint-position-player {
         width: 100%;
@@ -135,7 +135,7 @@ a:hover {
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 55px;
+        margin-bottom: 10px;
     }
     #players-container {
         order: 2;
@@ -196,6 +196,18 @@ a:hover {
         background-image: linear-gradient(180deg, #4C934C 25%, #50C456 25%, #50C456 50%, #4C934C 50%, #4C934C 75%, #50C456 75%, #50C456 100%);
         background-size: 356.00px 356.00px;
     }
+    .player2-list {
+        border: solid 1px #ccc;
+        min-height: 775px;
+        margin: 36px 0 0 0;
+        border-radius: 4px;
+        overflow: scroll;
+        display: block;
+        height: auto;
+        width: 100%;
+        background-image: linear-gradient(180deg, #4C934C 25%, #50C456 25%, #50C456 50%, #4C934C 50%, #4C934C 75%, #50C456 75%, #50C456 100%);
+        background-size: 356.00px 356.00px;
+    }
     #players-list {
         height: 725px;
         overflow-y: scroll;
@@ -203,7 +215,10 @@ a:hover {
     #drag-drop-container {
         display: flex;
         flex-wrap: wrap;
+        width: 100%;
         justify-content: center;
+        flex-direction: row;
+        align-items: baseline;
         /* background: url(/assets/background_img_5.jpg) no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
@@ -218,6 +233,10 @@ a:hover {
     }
     #FLEX {
         margin-left: -12px;
+    }
+    #logo-container {
+        height: 100px;
+        width: 100px;
     }
     .player-img {
         border: 2px solid white;
