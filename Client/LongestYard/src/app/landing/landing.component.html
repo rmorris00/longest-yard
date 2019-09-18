@@ -7,8 +7,10 @@
             <li class="mat-body">Click "Draft"</li>
             <li class="mat-body">Celebrate your win!</li>
         </ul>
-        <input type="text" [(ngModel)]="playerOneName" placeholder="Player One">
-        <input type="text" [(ngModel)]="playerTwoName" placeholder="Player Two">
+        <div id="name-box-container">
+            <input class = "name-boxes" type="text" [(ngModel)]="playerOneName" placeholder="Player One">
+            <input class = "name-boxes" type="text" [(ngModel)]="playerTwoName" placeholder="Player Two" (keyup.enter)="fillInOffenseData()">
+        </div>
         <button class="landing-btn" routerLink="/home" (click)="fillInOffenseData()" (click)="setNames()">START</button>
     </div>
 </div>

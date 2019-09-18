@@ -59,6 +59,26 @@ li {
     align-self: center;
 }
 
+#name-box-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.name-boxes {
+    margin-top: 30px;
+    height: 40px;
+    border-radius: 20px;
+    text-align: center;
+    background: none;
+    background-color: lightgrey;
+    opacity: 10%;
+
+    margin-bottom: 10px;
+    width:300px;
+}
+
 @media only screen and (min-width: 768px) {}
 
 @media only screen and (min-width: 1024px) {}

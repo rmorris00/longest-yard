@@ -118,7 +118,6 @@
 
     <div id="player2container">
         <div id="user-names-parent">
-<<<<<<< HEAD
             <p class="user-names">{{playerTwoName}}</p>
         </div>
         <div id="joint-position-player">
@@ -155,34 +154,7 @@
                     </ng-template>
                 </mat-expansion-panel>
             </mat-accordion>
-=======
-            <p class="user-names" id="player-two-user-name">PLAYER TWO</p>
->>>>>>> 4bae7c62b8320a6d3ab3e541bb24924a4e052562
         </div>
-
-
-        <mat-accordion class="player2-list">
-            <mat-expansion-panel class="example-box" *ngFor="let p of teamPlayer2" hideToggle>
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        <img class="player-img" src="{{p.mugshot}}">
-                        <p>{{p.position}} {{p.firstName}} {{p.lastName}}</p>
-
-                    </mat-panel-title>
-                    <mat-panel-description>
-
-                    </mat-panel-description>
-                </mat-expansion-panel-header>
-                <ng-template matExpansionPanelContent id="matExpansionPanelContent">
-                    <ul id=stat-list>
-                        <li>{{p.careerStat1}}</li>
-                        <li>{{p.careerStat2}}</li>
-                        <li>{{p.careerStat3}}</li>
-                        <li>{{p.careerBlurb}}</li>
-                    </ul>
-                </ng-template>
-            </mat-expansion-panel>
-        </mat-accordion>
 
 
 
