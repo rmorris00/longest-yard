@@ -93,10 +93,15 @@
                     <mat-expansion-panel *ngIf="p.position === positionAllowedToBeDrafted" class="example-box" hideToggle (click)="playerSelected(p)">
 
                         <mat-expansion-panel-header>
+<<<<<<< HEAD
+                            <mat-panel-title *ngIf="(p.position === positionAllowedToBeDrafted || p.position === flexPosition || p.position === flexPosition2)">
+                                <button *ngIf = "p.playerId === selectedPlayer.playerId && playerOneDrafted === false" id="player-one-draft-button" class="draft-button" (click)="player1Drafted($event)" style="position: static">P1 Ready</button>
+=======
                             <mat-panel-title *ngIf="p.position === positionAllowedToBeDrafted">
                                 <button *ngIf="p.playerId === selectedPlayer.playerId && playerOneDrafted === false" id="player-one-draft-button" class="draft-button" (click)="player1Drafted($event)" style="position: static"><i class="material-icons">
                                     arrow_back
                                     </i></button>
+>>>>>>> 0dfc1f38806e540fae890e1591d4c84cc0869ad9
                                 <img class="player-img" src="{{p.picture}}">
                                 <p>{{p.position}} {{p.firstName}} {{p.lastName}} {{p.playerCost | currency}}</p>
                             </mat-panel-title>
