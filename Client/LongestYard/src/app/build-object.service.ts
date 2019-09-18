@@ -11,9 +11,24 @@ export class BuildObjectService {
   builtListOfPlayers: Player[] = [];
   playerObject: Player;
   playerCost: number;
+  playerOneName: string = "Player One";
+  playerTwoName: string = "Player Two";
 
 
   constructor(private apiCallService: ApiCallService) { }
+
+  setPlayerNames(playerOneName, playerTwoName){
+    this.playerOneName = playerOneName;
+    this.playerTwoName = playerTwoName;
+  }
+
+  getPlayerOneName(){
+    return this.playerOneName
+  }
+
+  getPlayerTwoName(){
+    return this.playerTwoName
+  }
 
 
   fillInOffenseData(listOfPlayers){
