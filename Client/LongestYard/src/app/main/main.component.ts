@@ -3,7 +3,7 @@ import { ApiCallService } from '../api-call.service';
 import {CdkDragDrop, CdkDropList, CdkDragStart, moveItemInArray, copyArrayItem, transferArrayItem, CdkDrag} from '@angular/cdk/drag-drop';
 import {Player} from '../interfaces';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-
+import { Ng2OdometerModule } from 'ng2-odometer';
 
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -272,70 +272,21 @@ export class MainComponent implements OnInit {
     this.modalService.open(content)
   };
 
-
-
-
-
-
-  drop(event: CdkDragDrop<string[]>) {
-    if (event.previousContainer === event.container){
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex)
-    
-    } else{
-      copyArrayItem(event.previousContainer.data,
-                        event.container.data,
-                        event.previousIndex,
-                        event.currentIndex)
-                        console.log(this.player1);
-
-                        // this.subtractSalary(this.permittedValues);
-                        
-                        
-    }
-    
-  }
-
-
-  drop2(event: CdkDragDrop<string[]>) {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      transferArrayItem(event.previousContainer.data,
-                        event.container.data,
-                        event.previousIndex,
-                        event.currentIndex);
-    }
-  }
- 
-  // drop condition code that doesn't work below
-
-  // evenPredicate(item : CdkDrag<string>, testPlayer) {
-
-
-  //   return true;
-   
-  // }
-
-  // noReturnPredicate() {
-  //   return false;
-  // }
-
-  filteredPlayer = [...this.player2];
-
-  // removeTask(testPlayer){
-  //   console.log(testPlayer)
-  //   let indexNumber = this.player2.indexOf(testPlayer)
-  //   this.testPlayer.splice(indexNumber, 1);
-  // }
-
-    
-  playerStartingSalary : number = 100000
-
-  permittedValues : any = this.player1.map(function(value) {
-    return value.playerCost;
-  });
   
-  playerSalary : any = (this.playerStartingSalary - this.permittedValues);
+
+
+
+
+
+
+
+
+
+
+
+
+    
+ 
   
 
 };
