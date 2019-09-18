@@ -104,98 +104,9 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.availablePlayers = this.buildObject.getPlayerList();
-   
-    this.fillInOffenseData();
+
   }
 
-  getData(firstName, lastName){
-    
-    this.apiCall.getPlayerArrestData(firstName, lastName).subscribe((e: any)=>{
-      console.log(e);
-      this.playerCrimes = [];
-      for (let i = 0; i < e.length; i++){
-        this.playerCrimes.push(e[i].category);
-      }
-      this.getPlayerCost(this.playerCrimes)
-      console.log(this.playerCrimes);
-      return(this.playerCrimes);
-    })
-  };
-
-  fillInOffenseData(){
-    console.log(this.buildObject.fillInOffenseData(this.testPlayers));
-  }
-
-  getPlayerCost(playerCrimes){
-    this.playerCost = 0;
-    for (let i = 0; i < playerCrimes.length; i ++){
-      console.log(playerCrimes[i])
-      if (playerCrimes[i].toLowerCase().includes('murder')) {
-        this.playerCost += 100;
-      };
-      if (playerCrimes[i].toLowerCase().includes('dui')) {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase().includes('sex')) {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase().includes('drug')) {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase().includes('assault')) {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase().includes("gun")) {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "disorderly conduct") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "domestic violence") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "public intoxication") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "battery") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "license") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "alcohol") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "reckless driving") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "theft") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "outstanding warrant") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "failure to appear") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "trespassing") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "animal abuse") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "obstruction") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "child abuse") {
-        this.playerCost += 1;
-      };
-      if (playerCrimes[i].toLowerCase() === "resisting arrest") {
-        this.playerCost += 2;
-      };
-    }
-    return this.playerCost
-  }
   availablePlayers : Player[];
 
   teamPlayer1 : Player[] = [];
@@ -206,7 +117,11 @@ export class MainComponent implements OnInit {
     position: "QB",
     picture: '',
     playerId: 2,
-    av: 1
+    av: 1,
+    playerCost: 90,
+    mugshot: "/assets/playerPhotos/JohnnyManzielMugshot.png",
+
+
   };
   playerOneDrafted : boolean = false;
   playerTwoDrafted: boolean = false;
@@ -214,7 +129,8 @@ export class MainComponent implements OnInit {
   playerTwoSalary : number = 10000;
   positionToBeDrafted : string = "QB"
   positionAllowedToBeDrafted : string = "QB";
-  flexPosition: string = "p.position === WR || p.position === TE"
+  flexPosition: string = "";
+  flexPosition2: string ="";
   draftRound: number = 1;
   playerOneTotalScore: number;
   playerTwoTotalScore: number;
@@ -288,7 +204,7 @@ export class MainComponent implements OnInit {
         this.winner = this.whoWon.whoWon(totalPlayer1, totalPlayer2);
         console.log(`The winner is player ${this.winner}`);
       }
-      console.log(this.draftRound, this.positionAllowedToBeDrafted);
+      console.log(this.draftRound, this.positionAllowedToBeDrafted, this.flexPosition2, this.flexPosition);
     }
     else {
       return;
@@ -315,11 +231,15 @@ export class MainComponent implements OnInit {
     }
     else if (this.draftRound === 7) {
       this.positionToBeDrafted = "RB/WR/TE";
-      this.positionAllowedToBeDrafted = "WR";
+      this.positionAllowedToBeDrafted = "K";
+      this.flexPosition = "RB";
+      this.flexPosition2 = "TE";
       }
     else if (this.draftRound === 8) {
       this.positionToBeDrafted = "K"
       this.positionAllowedToBeDrafted = this.positionToBeDrafted;
+      this.flexPosition = "";
+      this.flexPosition2 = "";
     }
     else if (this.draftRound > 8) {
       this.positionToBeDrafted = "No More Picks"

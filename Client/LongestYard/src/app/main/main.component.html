@@ -188,7 +188,7 @@
                 <ng-container *ngFor="let p of availablePlayers">
                     <mat-expansion-panel *ngIf="p.position === positionAllowedToBeDrafted" class="example-box" cdkDrag>
                         <mat-expansion-panel-header>
-                            <mat-panel-title *ngIf="p.position === positionAllowedToBeDrafted">
+                            <mat-panel-title *ngIf="(p.position === positionAllowedToBeDrafted || p.position === flexPosition || p.position === flexPosition2)">
                                 <button *ngIf = "p.playerId === selectedPlayer.playerId && playerOneDrafted === false" id="player-one-draft-button" class="draft-button" (click)="player1Drafted($event)" style="position: static">P1 Ready</button>
                                 <img class="player-img" src="{{p.picture}}">
                                 <p>{{p.position}}</p>
