@@ -231,7 +231,7 @@ export class MainComponent implements OnInit {
     }
     else if (this.draftRound === 7) {
       this.positionToBeDrafted = "RB/WR/TE";
-      this.positionAllowedToBeDrafted = "K";
+      this.positionAllowedToBeDrafted = "WR";
       this.flexPosition = "RB";
       this.flexPosition2 = "TE";
       }
