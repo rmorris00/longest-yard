@@ -42,7 +42,7 @@
             <p class="user-names">PLAYER ONE</p>
         </div>
 
-        <mat-accordion class="player1-list">
+        <mat-accordion class="example-list" id="player1-list">
             <mat-expansion-panel class="example-box" *ngFor="let p of teamPlayer1" hideToggle>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
@@ -87,11 +87,13 @@
                 <mat-expansion-panel *ngIf="p.position === positionAllowedToBeDrafted || p.position === flexPosition || p.position === flexPosition2" class="example-box" hideToggle (click)="playerSelected(p)">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            <button *ngIf="p.playerId === selectedPlayer.playerId && playerOneDrafted === false" id="player-one-draft-button" class="draft-button" (click)="player1Drafted($event)" style="position: static"><i class="material-icons">
+                            <div id="desktop-player-card">
+                                <button *ngIf="p.playerId === selectedPlayer.playerId && playerOneDrafted === false" id="player-one-draft-button" class="draft-button" (click)="player1Drafted($event)" style="position: static"><i class="material-icons">
                                     arrow_back
                                     </i></button>
-                            <img class="player-img" src="{{p.picture}}">
-                            <p>{{p.position}} {{p.firstName}} {{p.lastName}} {{p.playerCost | currency}}</p>
+                                <img class="player-img" src="{{p.picture}}">
+                                <p>{{p.position}} {{p.firstName}} {{p.lastName}} {{p.playerCost | currency}}</p>
+                            </div>
                         </mat-panel-title>
                         <mat-panel-description>
                             <button *ngIf="p.playerId === selectedPlayer.playerId && playerTwoDrafted === false" id="player-two-draft-button" class="draft-button" (click)="player2Drafted()" style="position: static"><i class="material-icons">
@@ -127,7 +129,7 @@
         </div>
 
 
-        <mat-accordion class="player2-list">
+        <mat-accordion id="player2-list" class="example-list">
             <mat-expansion-panel class="example-box" *ngFor="let p of teamPlayer2" hideToggle>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
