@@ -13,7 +13,7 @@ export class PlayertwoComponent implements OnInit {
 
   availablePlayers: Player[];
   playerTwoRoster: Player[] = [];
-  playerTwoSalary: number = 10000;
+  playerTwoSalary: number;
   qbs2Drafted: Player[]  = [];
   rbs2Drafted: Player[]  = [];
   wrs2Drafted: Player[]  = [];
@@ -25,6 +25,7 @@ export class PlayertwoComponent implements OnInit {
 
   ngOnInit() {
     this.availablePlayers = this.buildObject.getPlayerList();
+    this.playerTwoSalary = this.mobileDraft.getPlayerTwoSalary();
     
   };
 
@@ -62,26 +63,33 @@ export class PlayertwoComponent implements OnInit {
 
   draftQB(selectedPlayer) {
     this.qbs2Drafted = this.mobileDraft.draftQB2(selectedPlayer);
+    console.log("tried to get salary");
+    this.playerTwoSalary = this.mobileDraft.getPlayerTwoSalary();
   };
 
   draftRB(selectedPlayer) {
     this.rbs2Drafted = this.mobileDraft.draftRB2(selectedPlayer);
+    this.playerTwoSalary = this.mobileDraft.getPlayerTwoSalary();
   };
 
   draftWR(selectedPlayer) {
     this.wrs2Drafted = this.mobileDraft.draftWR2(selectedPlayer);
+    this.playerTwoSalary = this.mobileDraft.getPlayerTwoSalary();
   };
 
   draftTE(selectedPlayer) {
     this.tes2Drafted = this.mobileDraft.draftTE2(selectedPlayer);
+    this.playerTwoSalary = this.mobileDraft.getPlayerTwoSalary();
   };
 
   draftFlex(selectedPlayer) {
     this.flexs2Drafted = this.mobileDraft.draftFlex2(selectedPlayer);
+    this.playerTwoSalary = this.mobileDraft.getPlayerTwoSalary();
   };
 
   draftK(selectedPlayer) {
     this.ks2Drafted = this.mobileDraft.draftK2(selectedPlayer);
+    this.playerTwoSalary = this.mobileDraft.getPlayerTwoSalary();
   };
 
 }
