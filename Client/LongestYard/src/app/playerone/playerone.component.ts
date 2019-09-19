@@ -13,7 +13,7 @@ export class PlayeroneComponent implements OnInit {
 
   availablePlayers: Player[];
   playerOneRoster: Player[] = [];
-  playerOneSalary: number = 10000;
+  playerOneSalary: number;
   qbsDrafted: Player[]  = [];
   rbsDrafted: Player[]  = [];
   wrsDrafted: Player[]  = [];
@@ -25,6 +25,7 @@ export class PlayeroneComponent implements OnInit {
 
   ngOnInit() {
     this.availablePlayers = this.buildObject.getPlayerList();
+    this.playerOneSalary = this.mobileDraft.getPlayerOneSalary();
   };
 
   calculateTotal(){
@@ -60,26 +61,32 @@ export class PlayeroneComponent implements OnInit {
 
   draftQB(selectedPlayer) {
     this.qbsDrafted = this.mobileDraft.draftQB(selectedPlayer);
+    this.playerOneSalary = this.mobileDraft.getPlayerOneSalary();
   };
 
   draftRB(selectedPlayer) {
     this.rbsDrafted = this.mobileDraft.draftRB(selectedPlayer);
+    this.playerOneSalary = this.mobileDraft.getPlayerOneSalary();
   };
 
   draftWR(selectedPlayer) {
     this.wrsDrafted = this.mobileDraft.draftWR(selectedPlayer);
+    this.playerOneSalary = this.mobileDraft.getPlayerOneSalary();
   };
 
   draftTE(selectedPlayer) {
     this.tesDrafted = this.mobileDraft.draftTE(selectedPlayer);
+    this.playerOneSalary = this.mobileDraft.getPlayerOneSalary();
   };
 
   draftFlex(selectedPlayer) {
     this.flexsDrafted = this.mobileDraft.draftFlex(selectedPlayer);
+    this.playerOneSalary = this.mobileDraft.getPlayerOneSalary();
   };
 
   draftK(selectedPlayer) {
     this.ksDrafted = this.mobileDraft.draftK(selectedPlayer);
+    this.playerOneSalary = this.mobileDraft.getPlayerOneSalary();
   };
 
     

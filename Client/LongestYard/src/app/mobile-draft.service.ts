@@ -38,7 +38,7 @@ export class MobileDraftService {
         };
       }
     }
-    else if (this.qbsDrafted.length < 1){
+    else if (this.qbsDrafted.length < 1 && this.playerOneSalary >= selectedPlayer.playerCost){
       console.log(selectedPlayer);
       this.flipSelected(selectedPlayer);
       this.playerOneSalary -= selectedPlayer.playerCost;
@@ -55,7 +55,7 @@ export class MobileDraftService {
         if (selectedPlayer.playerId === this.qbs2Drafted[i].playerId){
           this.flipSelected2(this.qbs2Drafted[i]);
           let indexOfPlayer = i;
-          this.playerOneSalary += this.qbs2Drafted[i].playerCost;
+          this.playerTwoSalary += this.qbs2Drafted[i].playerCost;
           this.qbs2Drafted.splice(indexOfPlayer, 1);
           console.log("Qb list")
           console.log(this.qbs2Drafted);
@@ -63,10 +63,10 @@ export class MobileDraftService {
         };
       }
     }
-    else if (this.qbs2Drafted.length < 1){
+    else if (this.qbs2Drafted.length < 1 && this.playerTwoSalary >= selectedPlayer.playerCost){
       console.log(selectedPlayer);
       this.flipSelected2(selectedPlayer);
-      this.playerOneSalary -= selectedPlayer.playerCost;
+      this.playerTwoSalary -= selectedPlayer.playerCost;
       this.qbs2Drafted.push(selectedPlayer);
       console.log("QB list");
       console.log(this.qbs2Drafted);
@@ -87,7 +87,7 @@ export class MobileDraftService {
         };
       }
     }
-    if (this.rbsDrafted.length < 2) {
+    if (this.rbsDrafted.length < 2 && this.playerOneSalary >= selectedPlayer.playerCost) {
       this.flipSelected(selectedPlayer);
       this.rbsDrafted.push(selectedPlayer);
       this.playerOneSalary -= selectedPlayer.playerCost;
@@ -102,17 +102,17 @@ export class MobileDraftService {
         if (selectedPlayer.playerId === this.rbs2Drafted[i].playerId){
           this.flipSelected2(this.rbs2Drafted[i]);
           let indexOfPlayer = i;
-          this.playerOneSalary += this.rbs2Drafted[i].playerCost;
+          this.playerTwoSalary += this.rbs2Drafted[i].playerCost;
           this.rbs2Drafted.splice(indexOfPlayer, 1);
           console.log("Rb list" + this.rbs2Drafted);
           return this.rbs2Drafted;
         };
       }
     }
-    if (this.rbs2Drafted.length < 2) {
+    if (this.rbs2Drafted.length < 2 && this.playerTwoSalary >= selectedPlayer.playerCost) {
       this.flipSelected2(selectedPlayer);
       this.rbs2Drafted.push(selectedPlayer);
-      this.playerOneSalary -= selectedPlayer.playerCost;
+      this.playerTwoSalary -= selectedPlayer.playerCost;
       console.log("Rb list" + this.rbs2Drafted);
       return this.rbs2Drafted;
     };
@@ -131,7 +131,7 @@ export class MobileDraftService {
         };
       }
     }
-    if (this.wrsDrafted.length < 2) {
+    if (this.wrsDrafted.length < 2 && this.playerOneSalary >= selectedPlayer.playerCost) {
       this.flipSelected(selectedPlayer);
       this.wrsDrafted.push(selectedPlayer);
       this.playerOneSalary -= selectedPlayer.playerCost;
@@ -146,17 +146,17 @@ export class MobileDraftService {
         if (selectedPlayer.playerId === this.wrs2Drafted[i].playerId){
           this.flipSelected2(this.wrs2Drafted[i]);
           let indexOfPlayer = i;
-          this.playerOneSalary += this.wrs2Drafted[i].playerCost;
+          this.playerTwoSalary += this.wrs2Drafted[i].playerCost;
           this.wrs2Drafted.splice(indexOfPlayer, 1);
           console.log("Wr list" + this.wrs2Drafted);
           return this.wrs2Drafted;
         };
       }
     }
-    if (this.wrs2Drafted.length < 2) {
+    if (this.wrs2Drafted.length < 2 && this.playerTwoSalary >= selectedPlayer.playerCost) {
       this.flipSelected2(selectedPlayer);
       this.wrs2Drafted.push(selectedPlayer);
-      this.playerOneSalary -= selectedPlayer.playerCost;
+      this.playerTwoSalary -= selectedPlayer.playerCost;
       console.log("Wr list" + this.wrs2Drafted);
       return this.wrs2Drafted;
     }
@@ -175,7 +175,7 @@ export class MobileDraftService {
         };
       }
     }
-    if (this.tesDrafted.length < 1) {
+    if (this.tesDrafted.length < 1 && this.playerOneSalary >= selectedPlayer.playerCost) {
       this.flipSelected(selectedPlayer);
       this.tesDrafted.push(selectedPlayer);
       this.playerOneSalary -= selectedPlayer.playerCost;
@@ -190,17 +190,17 @@ export class MobileDraftService {
         if (selectedPlayer.playerId === this.tes2Drafted[i].playerId){
           this.flipSelected2(this.tes2Drafted[i]);
           let indexOfPlayer = i;
-          this.playerOneSalary += this.tes2Drafted[i].playerCost;
+          this.playerTwoSalary += this.tes2Drafted[i].playerCost;
           this.tes2Drafted.splice(indexOfPlayer, 1);
           console.log("TE list" + this.tes2Drafted);
           return this.tes2Drafted;
         };
       }
     }
-    if (this.tes2Drafted.length < 1) {
+    if (this.tes2Drafted.length < 1 && this.playerTwoSalary >= selectedPlayer.playerCost) {
       this.flipSelected2(selectedPlayer);
       this.tes2Drafted.push(selectedPlayer);
-      this.playerOneSalary -= selectedPlayer.playerCost;
+      this.playerTwoSalary -= selectedPlayer.playerCost;
       console.log("TE list" + this.tes2Drafted);
       return this.tes2Drafted;
     }
@@ -219,7 +219,7 @@ export class MobileDraftService {
         };
       }
     }
-    if (this.flexsDrafted.length < 1) {
+    if (this.flexsDrafted.length < 1 && this.playerOneSalary >= selectedPlayer.playerCost) {
       this.flipSelected(selectedPlayer);
       this.flexsDrafted.push(selectedPlayer);
       this.playerOneSalary -= selectedPlayer.playerCost;
@@ -234,17 +234,17 @@ export class MobileDraftService {
         if (selectedPlayer.playerId === this.flexs2Drafted[i].playerId){
           this.flipSelected2(this.flexs2Drafted[i]);
           let indexOfPlayer = i;
-          this.playerOneSalary += this.flexs2Drafted[i].playerCost;
+          this.playerTwoSalary += this.flexs2Drafted[i].playerCost;
           this.flexs2Drafted.splice(indexOfPlayer, 1);
           console.log("Flex list" + this.flexs2Drafted);
           return this.flexs2Drafted;
         };
       }
     }
-    if (this.flexs2Drafted.length < 1) {
+    if (this.flexs2Drafted.length < 1 && this.playerTwoSalary >= selectedPlayer.playerCost) {
       this.flipSelected2(selectedPlayer);
       this.flexs2Drafted.push(selectedPlayer);
-      this.playerOneSalary -= selectedPlayer.playerCost;
+      this.playerTwoSalary -= selectedPlayer.playerCost;
       console.log("Flex list" + this.flexs2Drafted);
       return this.flexs2Drafted;
     }
@@ -263,7 +263,7 @@ export class MobileDraftService {
         };
       }
     }
-    if (this.ksDrafted.length < 1){
+    if (this.ksDrafted.length < 1 && this.playerOneSalary >= selectedPlayer.playerCost){
       this.flipSelected(selectedPlayer);
       this.ksDrafted.push(selectedPlayer);
       this.playerOneSalary -= selectedPlayer.playerCost;
@@ -278,21 +278,29 @@ export class MobileDraftService {
         if (selectedPlayer.playerId === this.ks2Drafted[i].playerId){
           this.flipSelected2(this.ks2Drafted[i]);
           let indexOfPlayer = i;
-          this.playerOneSalary += this.ks2Drafted[i].playerCost;
+          this.playerTwoSalary += this.ks2Drafted[i].playerCost;
           this.ks2Drafted.splice(indexOfPlayer, 1);
           console.log("K list" + this.ks2Drafted);
           return this.ks2Drafted;
         };
       }
     }
-    if (this.ks2Drafted.length < 1){
+    if (this.ks2Drafted.length < 1 && this.playerTwoSalary >= selectedPlayer.playerCost){
       this.flipSelected2(selectedPlayer);
       this.ks2Drafted.push(selectedPlayer);
-      this.playerOneSalary -= selectedPlayer.playerCost;
+      this.playerTwoSalary -= selectedPlayer.playerCost;
       console.log("K list" + this.ks2Drafted);
       return this.ks2Drafted;
     }
   };
+
+  getPlayerOneSalary(){
+    return this.playerOneSalary;
+  }
+
+  getPlayerTwoSalary(){
+    return this.playerTwoSalary;
+  }
 
   flipSelected(p){
     if (p.playerOneSelected === false){
