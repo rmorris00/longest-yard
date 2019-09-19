@@ -1,5 +1,8 @@
 <div class="player1-roster-header">
-        <p>{{playerTwoSalary}}</p>
+
+        <p id="cost-total">
+        <ng2-odometer [number]="playerTwoSalary" [theme]="'default'">{{playerTwoSalary | currency}}</ng2-odometer>
+    </p>
         <button class="submit-btn">submit</button>
     </div>
     
@@ -69,3 +72,4 @@
         </ng-container>
     </div>
     
+
