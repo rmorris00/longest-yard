@@ -22,7 +22,7 @@
 <ng-template #content let-c="close" let-d="dismiss">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <div class="modal-header" id="modal-header">
-        <h4 class="modal-title" id="modal-title" text-align="center">Player {{winner}} Wins!</h4>
+        <h4 class="modal-title" id="modal-title" text-align="center">{{winnerName}} Wins!</h4>
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -39,7 +39,7 @@
     <div id="player1container">
         <img id="logo" src="assets/logo.png" width="100px" height="100px">
         <div id="user-names-parent">
-            <p class="user-names">PLAYER ONE</p>
+            <p class="user-names">{{playerOneName}}</p>
         </div>
 
         <mat-accordion class="example-list" id="player1-list">
@@ -125,8 +125,10 @@
     <div id="player2container">
         <div id="space"></div>
         <div id="user-names-parent">
-            <p class="user-names" id="player-two-user-name">PLAYER TWO</p>
+            <p class="user-names">{{playerTwoName}}</p>
         </div>
+        <div id="joint-position-player">
+        
 
 
         <mat-accordion id="player2-list" class="example-list">
@@ -151,6 +153,7 @@
                 </ng-template>
             </mat-expansion-panel>
         </mat-accordion>
+
 
 
 
