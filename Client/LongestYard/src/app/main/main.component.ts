@@ -13,6 +13,7 @@ import { NumberValueAccessor } from '@angular/forms';
 import { currentId } from 'async_hooks';
 import { element } from 'protractor';
 import { WhowonService } from '../whowon.service';
+import { PlayeroneComponent } from '../playerone/playerone.component';
 
 @Component({
   selector: 'app-main',
@@ -104,6 +105,8 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.availablePlayers = this.buildObject.getPlayerList();
+    this.playerOneName = this.buildObject.getPlayerOneName();
+    this.playerTwoName = this.buildObject.getPlayerTwoName();
 
   }
 
@@ -123,6 +126,9 @@ export class MainComponent implements OnInit {
 
 
   };
+
+  playerOneName: string = "Player One";
+  playerTwoName: string = "Player Two";
   playerOneDrafted : boolean = false;
   playerTwoDrafted: boolean = false;
   playerOneSalary : number = 10000;
@@ -135,6 +141,7 @@ export class MainComponent implements OnInit {
   playerOneTotalScore: number;
   playerTwoTotalScore: number;
   winner: number;
+  winnerName: string;
 
 
 
@@ -202,6 +209,12 @@ export class MainComponent implements OnInit {
         let totalPlayer1 = this.totalPlayerOneScore();
         let totalPlayer2 = this.totalPlayerTwoScore();
         this.winner = this.whoWon.whoWon(totalPlayer1, totalPlayer2);
+        if (this.winner === 1){
+          this.winnerName = this.playerOneName;
+        };
+        if (this.winner === 2){
+          this.winnerName = this.playerTwoName;
+        };
         console.log(`The winner is player ${this.winner}`);
       }
       console.log(this.draftRound, this.positionAllowedToBeDrafted, this.flexPosition2, this.flexPosition);

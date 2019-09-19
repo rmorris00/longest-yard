@@ -14,4 +14,6 @@ export interface Player {
     careerStat4?: string; // Hard Coded
     careerStat5?: string; // Hard Coded
     careerBlurb?: string; // Hard Coded
+    playerOneSelected?: boolean;
+    playerTwoSelected?: boolean;
 }

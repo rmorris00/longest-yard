@@ -22,7 +22,7 @@
 <ng-template #content let-c="close" let-d="dismiss">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <div class="modal-header" id="modal-header">
-        <h4 class="modal-title" id="modal-title" text-align="center">Player {{winner}} Wins!</h4>
+        <h4 class="modal-title" id="modal-title" text-align="center">{{winnerName}} Wins!</h4>
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -39,7 +39,7 @@
     <div id="player1container">
         <img id="logo" src="assets/logo.png" width="100px" height="100px">
         <div id="user-names-parent">
-            <p class="user-names">PLAYER ONE</p>
+            <p class="user-names">{{playerOneName}}</p>
         </div>
 
         <mat-accordion class="player1-list">
@@ -123,32 +123,43 @@
     <div id="player2container">
         <div id="space"></div>
         <div id="user-names-parent">
-            <p class="user-names" id="player-two-user-name">PLAYER TWO</p>
+            <p class="user-names">{{playerTwoName}}</p>
         </div>
+        <div id="joint-position-player">
+            <!-- <ul id="position-list">
+                <li>QB</li>
+                <li>RB</li>
+                <li>RB</li>
+                <li>WR</li>
+                <li>WR</li>
+                <li>TE</li>
+                <li id="flex">FLEX</li>
+                <li id="K">K</li>
+            </ul> -->
 
+            <mat-accordion class="player1-list">
+                <mat-expansion-panel class="example-box" *ngFor="let p of teamPlayer2" hideToggle>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <img class="player-img" src="{{p.mugshot}}">
+                            <p>{{p.position}} {{p.firstName}} {{p.lastName}}</p>
 
-        <mat-accordion class="player2-list">
-            <mat-expansion-panel class="example-box" *ngFor="let p of teamPlayer2" hideToggle>
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        <img class="player-img" src="{{p.mugshot}}">
-                        <p>{{p.position}} {{p.firstName}} {{p.lastName}}</p>
+                        </mat-panel-title>
+                        <mat-panel-description>
 
-                    </mat-panel-title>
-                    <mat-panel-description>
-
-                    </mat-panel-description>
-                </mat-expansion-panel-header>
-                <ng-template matExpansionPanelContent id="matExpansionPanelContent">
-                    <ul id=stat-list>
-                        <li>{{p.careerStat1}}</li>
-                        <li>{{p.careerStat2}}</li>
-                        <li>{{p.careerStat3}}</li>
-                        <li>{{p.careerBlurb}}</li>
-                    </ul>
-                </ng-template>
-            </mat-expansion-panel>
-        </mat-accordion>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <ng-template matExpansionPanelContent id="matExpansionPanelContent">
+                        <ul id=stat-list>
+                            <li>{{p.careerStat1}}</li>
+                            <li>{{p.careerStat2}}</li>
+                            <li>{{p.careerStat3}}</li>
+                            <li>{{p.careerBlurb}}</li>
+                        </ul>
+                    </ng-template>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
 
 
 
