@@ -1,0 +1,93 @@
+.player1-roster-header{
+    position: fixed;
+    top: 50px;
+    display: flex;
+    background-color:#F900F8;
+    width: 100%;
+    font-family: 'Sporter';
+}
+
+#cost-total {
+    font-family: 'StripesCaps';
+    color: #E5E8C9;
+}
+
+.submit-btn{
+    margin-left: auto;
+    margin-right: 5px;
+    background-color: rgba(255, 255, 255, 0.068);
+    border: none;
+    font-family: 'Sporter';
+}
+
+.first-group {
+    margin-block-start: 50px;
+}
+
+.postition-group{
+    border: 1px solid blue;
+    display: flex;
+    font-family: 'Code_Pro';
+}
+
+.label {
+    /* border: 1px solid black; */
+    background-color: rgba(255, 255, 255, 0.925);
+    text-align: center;
+    font-family: 'Sporter';
+}
+
+.pick-x {
+    font-size: .75em;
+    color: rgb(139, 201, 139);
+}
+
+.position-cards{
+    border: 2px solid white;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(14, 14, 129, 0.5);
+}
+
+.player-selected {
+    border: 2px solid red;
+    background-color: yellow;
+}
+
+
+
+.player-img{
+    border: 3px solid white;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin: 0.95em 0.55em 0.25em 0.55em;
+}
+
+.player-name{
+    font-size: 1.25em;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    margin-left: 3em;
+    text-align: center;
+    color: rgb(184, 241, 241);
+    /* color: rgb(237, 250, 237); */
+}
+
+.player-stats{
+    font-size: 0.45em;
+    font-family: 'Code_Pro_Light';
+    /* font-weight: bold; */
+    color: white;
+
+}
+
+.player-price{
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: 0.10em;
+    color: rgb(243, 221, 232);
+    
+}

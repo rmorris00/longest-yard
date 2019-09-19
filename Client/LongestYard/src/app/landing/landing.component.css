@@ -14,31 +14,69 @@
     color: white;
 }
 
+.mat-h2 {
+    font-size: 4em;
+}
+
 .start-container {
     border: 2px solid white;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     width: 90%;
-    height: 50%;
-    background-color: rgba(255, 255, 255, 0.445);
+    height: 60%;
+    background-color: rgba(255, 255, 255, 0.678);
 }
 
 ul {
     list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: "Sporter";
+    text-align: center;
+}
+
+li {
+    font-family: 'Sporter';
+    font-size: 2.5em;
+    padding: 10px;
+    line-height: 30px;
+    letter-spacing: 3px;
 }
 
 .landing-btn {
     width: 75%;
+    height: 20%;
     background-color: rgba(255, 255, 255, 0.096);
-    color: white;
+    color: black;
     font-weight: 600;
     border-radius: 5px;
-    border: 2px solid rgb(117, 3, 117);
+    border: 2px solid #F900F8;
     margin-top: auto;
     margin-bottom: 5px;
     padding: 3px 6px;
     align-self: center;
+}
+
+#name-box-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.name-boxes {
+    margin-top: 30px;
+    height: 40px;
+    border-radius: 20px;
+    text-align: center;
+    background: none;
+    background-color: lightgrey;
+    opacity: 10%;
+
+    margin-bottom: 10px;
+    width:300px;
 }
 
 @media only screen and (min-width: 768px) {}

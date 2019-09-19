@@ -3,7 +3,7 @@ import { ApiCallService } from '../api-call.service';
 import {CdkDragDrop, CdkDropList, CdkDragStart, moveItemInArray, copyArrayItem, transferArrayItem, CdkDrag} from '@angular/cdk/drag-drop';
 import {Player} from '../interfaces';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-
+import { Ng2OdometerModule } from 'ng2-odometer';
 
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -12,6 +12,8 @@ import { BuildObjectService } from '../build-object.service';
 import { NumberValueAccessor } from '@angular/forms';
 import { currentId } from 'async_hooks';
 import { element } from 'protractor';
+import { WhowonService } from '../whowon.service';
+import { PlayeroneComponent } from '../playerone/playerone.component';
 
 @Component({
   selector: 'app-main',
@@ -99,115 +101,47 @@ export class MainComponent implements OnInit {
   RB : any;
   WR: any;
 
-  constructor(private apiCall : ApiCallService, private buildObject : BuildObjectService, private modalService: NgbModal) { }
+  constructor(private apiCall : ApiCallService, private buildObject : BuildObjectService, private modalService: NgbModal, private whoWon: WhowonService) { }
 
   ngOnInit() {
     this.availablePlayers = this.buildObject.getPlayerList();
-   
-    this.fillInOffenseData();
+    this.playerOneName = this.buildObject.getPlayerOneName();
+    this.playerTwoName = this.buildObject.getPlayerTwoName();
+
   }
 
-  getData(firstName, lastName){
-    
-    this.apiCall.getPlayerArrestData(firstName, lastName).subscribe((e: any)=>{
-      console.log(e);
-      this.playerCrimes = [];
-      for (let i = 0; i < e.length; i++){
-        this.playerCrimes.push(e[i].category);
-      }
-      this.getPlayerCost(this.playerCrimes)
-      console.log(this.playerCrimes);
-      return(this.playerCrimes);
-    })
-  };
-
-  fillInOffenseData(){
-    console.log(this.buildObject.fillInOffenseData(this.testPlayers));
-  }
-
-  getPlayerCost(playerCrimes){
-    this.playerCost = 0;
-    for (let i = 0; i < playerCrimes.length; i ++){
-      console.log(playerCrimes[i])
-      if (playerCrimes[i].toLowerCase().includes('murder')) {
-        this.playerCost += 100;
-      };
-      if (playerCrimes[i].toLowerCase().includes('dui')) {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase().includes('sex')) {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase().includes('drug')) {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase().includes('assault')) {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase().includes("gun")) {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "disorderly conduct") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "domestic violence") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "public intoxication") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "battery") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "license") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "alcohol") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "reckless driving") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "theft") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "outstanding warrant") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "failure to appear") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "trespassing") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "animal abuse") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "obstruction") {
-        this.playerCost += 2;
-      };
-      if (playerCrimes[i].toLowerCase() === "child abuse") {
-        this.playerCost += 1;
-      };
-      if (playerCrimes[i].toLowerCase() === "resisting arrest") {
-        this.playerCost += 2;
-      };
-    }
-    return this.playerCost
-  }
   availablePlayers : Player[];
 
-  mikePlayer1 : Player[] = [];
-  mikePlayer2 : Player[] = [];
-  mikeSelectedPlayer : Player;
+  teamPlayer1 : Player[] = [];
+  teamPlayer2 : Player[] = [];
+  selectedPlayer : Player = {
+    firstName: "Johnny",
+    lastName: "Manziel",
+    position: "QB",
+    picture: '',
+    playerId: 2,
+    av: 1,
+    playerCost: 90,
+    mugshot: "/assets/playerPhotos/JohnnyManzielMugshot.png",
+
+
+  };
+
+  playerOneName: string = "Player One";
+  playerTwoName: string = "Player Two";
   playerOneDrafted : boolean = false;
   playerTwoDrafted: boolean = false;
   playerOneSalary : number = 10000;
   playerTwoSalary : number = 10000;
   positionToBeDrafted : string = "QB"
   positionAllowedToBeDrafted : string = "QB";
-  flexPosition: string = "p.position === WR || p.position === TE"
+  flexPosition: string = "";
+  flexPosition2: string ="";
   draftRound: number = 1;
+  playerOneTotalScore: number;
+  playerTwoTotalScore: number;
+  winner: number;
+  winnerName: string;
 
 
 
@@ -222,46 +156,46 @@ export class MainComponent implements OnInit {
 
 
   playerSelected(player){
-    this.mikeSelectedPlayer = player;
-    console.log(this.mikeSelectedPlayer);
+    this.selectedPlayer = player;
+    console.log(this.selectedPlayer);
   };
 
   player1Drafted(){
-    console.log(`Player 1 has drafted ${this.mikeSelectedPlayer.firstName}`)
+    console.log(`Player 1 has drafted ${this.selectedPlayer.firstName}`)
     if (this.playerOneDrafted === false){
-      for (let i = 0; i < this.mikePlayer1.length; i++){
-        if (this.mikeSelectedPlayer.playerId === this.mikePlayer1[i].playerId){
-          alert(`${this.mikeSelectedPlayer.firstName} ${this.mikeSelectedPlayer.lastName} Has Already Been Drafted By Player 1`);
+      for (let i = 0; i < this.teamPlayer1.length; i++){
+        if (this.selectedPlayer.playerId === this.teamPlayer1[i].playerId){
+          alert(`${this.selectedPlayer.firstName} ${this.selectedPlayer.lastName} Has Already Been Drafted By Player 1`);
           return;
         }
       }
-      this.mikePlayer1.push(this.mikeSelectedPlayer);
-      this.playerOneSalary -= this.mikeSelectedPlayer.playerCost;
+      this.teamPlayer1.push(this.selectedPlayer);
+      this.playerOneSalary -= this.selectedPlayer.playerCost;
       this.playerOneDrafted = true;
       this.goToNextRound();
     }
-    console.log(this.mikePlayer1);
+    console.log(this.teamPlayer1);
     return;
   };
 
   player2Drafted(){
-    console.log(`Player 2 has drafted ${this.mikeSelectedPlayer.firstName}`)
+    console.log(`Player 2 has drafted ${this.selectedPlayer.firstName}`)
     if (this.playerTwoDrafted === false){
-      for (let i = 0; i < this.mikePlayer2.length; i ++){
-        if (this.mikeSelectedPlayer.playerId === this.mikePlayer2[i].playerId){
-          alert(`${this.mikeSelectedPlayer.firstName} ${this.mikeSelectedPlayer.lastName} Has Already Been Drafted By Player 2`);
+      for (let i = 0; i < this.teamPlayer2.length; i ++){
+        if (this.selectedPlayer.playerId === this.teamPlayer2[i].playerId){
+          alert(`${this.selectedPlayer.firstName} ${this.selectedPlayer.lastName} Has Already Been Drafted By Player 2`);
           return;
         }
       }
-      this.mikePlayer2.push(this.mikeSelectedPlayer);
-      this.playerTwoSalary -= this.mikeSelectedPlayer.playerCost;
+      this.teamPlayer2.push(this.selectedPlayer);
+      this.playerTwoSalary -= this.selectedPlayer.playerCost;
       this.playerTwoDrafted = true;
       this.goToNextRound();
     }
     else {
       return;
     }
-    console.log(this.mikePlayer2);
+    console.log(this.teamPlayer2);
     return;
   };
 
@@ -271,7 +205,19 @@ export class MainComponent implements OnInit {
       this.playerOneDrafted = false;
       this.playerTwoDrafted = false;
       this.whichPositionToDraft();
-      console.log(this.draftRound, this.positionAllowedToBeDrafted);
+      if (this.draftRound >= 9){
+        let totalPlayer1 = this.totalPlayerOneScore();
+        let totalPlayer2 = this.totalPlayerTwoScore();
+        this.winner = this.whoWon.whoWon(totalPlayer1, totalPlayer2);
+        if (this.winner === 1){
+          this.winnerName = this.playerOneName;
+        };
+        if (this.winner === 2){
+          this.winnerName = this.playerTwoName;
+        };
+        console.log(`The winner is player ${this.winner}`);
+      }
+      console.log(this.draftRound, this.positionAllowedToBeDrafted, this.flexPosition2, this.flexPosition);
     }
     else {
       return;
@@ -299,84 +245,61 @@ export class MainComponent implements OnInit {
     else if (this.draftRound === 7) {
       this.positionToBeDrafted = "RB/WR/TE";
       this.positionAllowedToBeDrafted = "WR";
+      this.flexPosition = "RB";
+      this.flexPosition2 = "TE";
       }
     else if (this.draftRound === 8) {
       this.positionToBeDrafted = "K"
       this.positionAllowedToBeDrafted = this.positionToBeDrafted;
+      this.flexPosition = "";
+      this.flexPosition2 = "";
+    }
+    else if (this.draftRound > 8) {
+      this.positionToBeDrafted = "No More Picks"
+      this.positionAllowedToBeDrafted = this.positionToBeDrafted; 
     }
     else if (this.draftRound > 9 || this.draftRound < 1){
-      alert("woah, something is wrong");
+      alert("woah, something is wrong")
     };
   };
+
+  totalPlayerOneScore() {
+    this.playerOneTotalScore = 0;
+    for (let i = 0; i < this.teamPlayer1.length; i ++){
+      this.playerOneTotalScore += (this.teamPlayer1[i].av);
+    };
+    return this.playerOneTotalScore;
+  };
+
+  totalPlayerTwoScore() {
+    this.playerTwoTotalScore = 0;
+    for (let i = 0; i < this.teamPlayer2.length; i ++){
+      this.playerTwoTotalScore += (this.teamPlayer2[i].av);
+    };
+    return this.playerTwoTotalScore;
+  };
+
+
 
   open(content) {
     this.modalService.open(content)
   };
 
-
-
-
-
-
-  drop(event: CdkDragDrop<string[]>) {
-    if (event.previousContainer === event.container){
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex)
-    
-    } else{
-      copyArrayItem(event.previousContainer.data,
-                        event.container.data,
-                        event.previousIndex,
-                        event.currentIndex)
-                        console.log(this.player1);
-
-                        // this.subtractSalary(this.permittedValues);
-                        
-                        
-    }
-    
-  }
-
-
-  drop2(event: CdkDragDrop<string[]>) {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      transferArrayItem(event.previousContainer.data,
-                        event.container.data,
-                        event.previousIndex,
-                        event.currentIndex);
-    }
-  }
- 
-  // drop condition code that doesn't work below
-
-  // evenPredicate(item : CdkDrag<string>, testPlayer) {
-
-
-  //   return true;
-   
-  // }
-
-  // noReturnPredicate() {
-  //   return false;
-  // }
-
-  filteredPlayer = [...this.player2];
-
-  // removeTask(testPlayer){
-  //   console.log(testPlayer)
-  //   let indexNumber = this.player2.indexOf(testPlayer)
-  //   this.testPlayer.splice(indexNumber, 1);
-  // }
-
-    
-  playerStartingSalary : number = 100000
-
-  permittedValues : any = this.player1.map(function(value) {
-    return value.playerCost;
-  });
   
-  playerSalary : any = (this.playerStartingSalary - this.permittedValues);
+
+
+
+
+
+
+
+
+
+
+
+
+    
+ 
   
 
 };

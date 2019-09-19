@@ -11,6 +11,8 @@ import { Player } from '../interfaces';
 export class LandingComponent implements OnInit {
 
   listOfPlayers : Player[];
+  playerOneName: string;
+  playerTwoName: string;
 
   constructor(private apiCallService : ApiCallService, private buildObject: BuildObjectService) { }
 
@@ -23,4 +25,9 @@ export class LandingComponent implements OnInit {
     console.log(result);
   }
 
+  setNames(){
+    if (this.playerOneName !== undefined || this.playerTwoName !== undefined){
+    this.buildObject.setPlayerNames(this.playerOneName, this.playerTwoName);
+    };
+  };
 }
