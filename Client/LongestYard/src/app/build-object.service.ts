@@ -72,7 +72,9 @@ export class BuildObjectService {
           careerStat3: d[i].careerstat3,
           careerStat4: d[i].careerstat4,
           careerStat5: d[i].careerstat5,
-          careerBlurb: d[i].careerblurb
+          careerBlurb: d[i].careerblurb,
+          playerOneSelected: false,
+          playerTwoSelected: false,
         };
         // console.log(this.playerObject);
         this.builtListOfPlayers.push(this.playerObject);
@@ -164,5 +166,13 @@ export class BuildObjectService {
   getPlayerList(){
     return this.builtListOfPlayers;
   };
+
+  flipSelected(listOfPlayers){
+    for (let i = 0; i < listOfPlayers.length; i ++){
+      listOfPlayers[i].isSelected = false;
+    }
+    return listOfPlayers;
+
+  }
 
 }
