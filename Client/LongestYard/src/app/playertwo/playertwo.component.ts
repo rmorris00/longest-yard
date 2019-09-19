@@ -14,12 +14,12 @@ export class PlayertwoComponent implements OnInit {
   availablePlayers: Player[];
   playerTwoRoster: Player[] = [];
   playerTwoSalary: number = 10000;
-  qbsDrafted: Player[]  = [];
-  rbsDrafted: Player[]  = [];
-  wrsDrafted: Player[]  = [];
-  tesDrafted: Player[]  = [];
-  flexsDrafted: Player[] = [];
-  ksDrafted: Player[]  = [];
+  qbs2Drafted: Player[]  = [];
+  rbs2Drafted: Player[]  = [];
+  wrs2Drafted: Player[]  = [];
+  tes2Drafted: Player[]  = [];
+  flexs2Drafted: Player[] = [];
+  ks2Drafted: Player[]  = [];
 
   constructor(private buildObject: BuildObjectService, private whoWon: WhowonService, private mobileDraft: MobileDraftService) { }
 
@@ -39,49 +39,49 @@ export class PlayertwoComponent implements OnInit {
   }
 
   addToRoster(){
-    for (let i = 0; i < this.qbsDrafted.length; i ++){
-      this.playerTwoRoster.push(this.qbsDrafted[i]);
+    for (let i = 0; i < this.qbs2Drafted.length; i ++){
+      this.playerTwoRoster.push(this.qbs2Drafted[i]);
     };
-    for (let i = 0; i < this.rbsDrafted.length; i ++){
-      this.playerTwoRoster.push(this.rbsDrafted[i]);
+    for (let i = 0; i < this.rbs2Drafted.length; i ++){
+      this.playerTwoRoster.push(this.rbs2Drafted[i]);
     };
-    for (let i = 0; i < this.wrsDrafted.length; i ++){
-      this.playerTwoRoster.push(this.wrsDrafted[i]);
+    for (let i = 0; i < this.wrs2Drafted.length; i ++){
+      this.playerTwoRoster.push(this.wrs2Drafted[i]);
     };
-    for (let i = 0; i < this.tesDrafted.length; i ++){
-      this.playerTwoRoster.push(this.tesDrafted[i]);
+    for (let i = 0; i < this.tes2Drafted.length; i ++){
+      this.playerTwoRoster.push(this.tes2Drafted[i]);
     };
-    for (let i = 0; i < this.flexsDrafted.length; i ++){
-      this.playerTwoRoster.push(this.flexsDrafted[i]);
+    for (let i = 0; i < this.flexs2Drafted.length; i ++){
+      this.playerTwoRoster.push(this.flexs2Drafted[i]);
     };
-    for (let i = 0; i < this.ksDrafted.length; i ++){
-      this.playerTwoRoster.push(this.ksDrafted[i]);
+    for (let i = 0; i < this.ks2Drafted.length; i ++){
+      this.playerTwoRoster.push(this.ks2Drafted[i]);
     };
     return this.playerTwoRoster;
   };
 
   draftQB(selectedPlayer) {
-    this.qbsDrafted = this.mobileDraft.draftQB2(selectedPlayer);
+    this.qbs2Drafted = this.mobileDraft.draftQB2(selectedPlayer);
   };
 
   draftRB(selectedPlayer) {
-    this.rbsDrafted = this.mobileDraft.draftRB2(selectedPlayer);
+    this.rbs2Drafted = this.mobileDraft.draftRB2(selectedPlayer);
   };
 
   draftWR(selectedPlayer) {
-    this.wrsDrafted = this.mobileDraft.draftWR2(selectedPlayer);
+    this.wrs2Drafted = this.mobileDraft.draftWR2(selectedPlayer);
   };
 
   draftTE(selectedPlayer) {
-    this.tesDrafted = this.mobileDraft.draftTE2(selectedPlayer);
+    this.tes2Drafted = this.mobileDraft.draftTE2(selectedPlayer);
   };
 
   draftFlex(selectedPlayer) {
-    this.flexsDrafted = this.mobileDraft.draftFlex2(selectedPlayer);
+    this.flexs2Drafted = this.mobileDraft.draftFlex2(selectedPlayer);
   };
 
   draftK(selectedPlayer) {
-    this.ksDrafted = this.mobileDraft.draftK2(selectedPlayer);
+    this.ks2Drafted = this.mobileDraft.draftK2(selectedPlayer);
   };
 
 }
